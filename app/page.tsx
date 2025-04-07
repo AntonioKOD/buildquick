@@ -334,9 +334,9 @@ export default function Home() {
               <div className="absolute -left-4 -top-4 h-8 w-8 border-2 border-[#1B1F3B] bg-primary geo-shape md:-left-8 md:-top-8 md:h-16 md:w-16"></div>
               <div className="absolute -right-4 -bottom-4 h-8 w-8 border-2 border-[#1B1F3B] bg-secondary geo-shape md:-right-8 md:-bottom-8 md:h-16 md:w-16"></div>
               <h2 className="relative z-10 mx-auto font-serif text-4xl font-bold leading-tight text-[#1B1F3B] md:text-5xl">
-                Development, <span className="italic">reimagined</span>
+                &quot;Development, <span className="italic">reimagined</span>
                 <br />
-                for <span className="text-primary">dreamers</span>
+                for <span className="text-primary">dreamers&quot;</span>
               </h2>
             </div>
           </div>
