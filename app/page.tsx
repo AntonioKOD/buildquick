@@ -19,6 +19,12 @@ import top from "@/public/top.svg"
 import scalable from "@/public/scalable.svg"
 import talk from "@/public/talk.svg"
 import Link from "next/link";
+import contentful from "@/public/contentful.svg"
+import next from '@/public/nextjs.svg'
+import pacific from '@/public/pacific.svg'
+import rolandmusic from '@/public/rolandmusic.svg'
+import mongo from '@/public/mongo.svg'
+import countrygarden from '@/public/countrygarden.svg'
 
 export default function Home() {
   const heroRef = useRef(null)
@@ -29,6 +35,7 @@ export default function Home() {
   const testimonialsRef = useRef(null)
   const faqRef = useRef(null)
   const flexibleRef = useRef(null)
+  
 
   useEffect(() => {
     // Hero animation
@@ -208,12 +215,14 @@ export default function Home() {
           <Image src={logo} alt='logo for buildquick' height={120} width={120}/>
         </div>
         <div className="flex items-center gap-4">
+          <Link href='https://calendly.com/antonio-36xn/new-meeting'>
           <Button
             className="h-10 rounded-md border-2 border-[#1B1F3B] bg-[#1B1F3B] px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
             variant="default"
           >
             Let&apos; talk
           </Button>
+          </Link>
         </div>
       </header>
 
@@ -226,24 +235,28 @@ export default function Home() {
             <div className="relative grid gap-12 rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] md:grid-cols-2 md:items-center md:p-12">
               <div>
                 <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B] hero-element">
-                  Web Development Subscription
+                  Develop Fast, Launch Now
                 </div>
                 <h1 className="mb-6 font-serif text-5xl font-bold leading-tight tracking-tight text-[#1B1F3B] hero-element md:text-6xl">
-                  Web development
+                  Unlimited development
                   <br />
-                  <span className="italic">subscriptions</span>
+                  <span className="italic">for MVPs</span>
                   <br />
-                  for <span className="text-primary">everyone</span>
+                  and <span className="text-primary">more</span>
                 </h1>
                 <div className="mb-4 h-1 w-24 bg-[#1B1F3B] hero-element"></div>
-                <p className="mb-8 text-lg text-black/70 hero-element">Pause or cancel anytime.</p>
+                <p className="mb-8 text-lg text-black/70 hero-element">
+                  I&apos;m your lead dev—building your ideas in days. Pause or cancel anytime.
+                </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button
-                    className="h-12 rounded-md border-2 border-[#1B1F3B] bg-primary px-8 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
-                    variant="default"
-                  >
-                    Start today
-                  </Button>
+                  <Link href='https://buy.stripe.com/eVacOcfVxeRL2n6fYY'>
+                    <Button
+                      className="h-12 rounded-md border-2 border-[#1B1F3B] bg-primary px-8 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
+                      variant="default"
+                    >
+                      Get Started Now
+                    </Button>
+                  </Link>
                 </div>
               </div>
               <div className="relative hero-element">
@@ -258,11 +271,13 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
+
                     <div className="mb-2 inline-block rounded-md bg-black px-4 py-1 text-sm font-bold text-white">
                       Start today
                     </div>
-                    <h2 className="mb-2 text-3xl font-bold">Join BuildQuick</h2>
-                    <p className="mb-6">One subscription to rule them all.</p>
+                    
+                    <h2 className="mb-2 text-3xl font-bold">Get the Builder&apos;s Pass</h2>
+                    <p className="mb-6"> Unlimited builds, one flat fee.</p>
                     <Link href="#pricing">
                     <Button
                       className="h-10 w-full rounded-md border-2 border-black bg-white px-6 text-sm font-bold text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
@@ -279,14 +294,35 @@ export default function Home() {
         </section>
 
         {/* Client Logos */}
-        <section ref={logoGridRef} className="border-y-2 border-[#1B1F3B] bg-background py-10">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-              <div className="text-black/70">Trusted by startups and founders</div>
-              <div className="h-8 w-24 rounded-md bg-black/10"></div>
-              <div className="h-8 w-24 rounded-md bg-black/10"></div>
-              <div className="h-8 w-24 rounded-md bg-black/10"></div>
-              <div className="h-8 w-24 rounded-md bg-black/10"></div>
+        <section ref={logoGridRef} className="border-y-2 border-foreground bg-background  ">
+          <div className="container mx-auto px-2 md:px-6">
+            <div className="flex flex-col items-center">  
+              <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-6">
+                {[
+                  { name: "Next.js", src: next },
+                  { name: "Contentful", src: contentful },
+                  { name: "Pacific Coffee", src: pacific },
+                  { name: "Country Garden", src: countrygarden },
+                  { name: "Roland Music", src: rolandmusic },
+                  { name: "MongoDB", src: mongo }
+                ].map((logo, index) => (
+                  <div 
+                    key={index} 
+                    className="group logo-float relative flex items-center justify-center"
+                  >
+                    <div className="absolute inset-0 -z-10 rounded-lg border-2 border-foreground bg-card opacity-0 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all duration-300 group-hover:opacity-100"></div>
+                    <div className="relative w-full overflow-hidden p-2 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
+                      <Image 
+                        src={logo.src || "/placeholder.svg"} 
+                        alt={`${logo.name} logo`} 
+                        width={120} 
+                        height={120} 
+                        className="h-full w-full object-contain" 
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -298,9 +334,9 @@ export default function Home() {
               <div className="absolute -left-4 -top-4 h-8 w-8 border-2 border-[#1B1F3B] bg-primary geo-shape md:-left-8 md:-top-8 md:h-16 md:w-16"></div>
               <div className="absolute -right-4 -bottom-4 h-8 w-8 border-2 border-[#1B1F3B] bg-secondary geo-shape md:-right-8 md:-bottom-8 md:h-16 md:w-16"></div>
               <h2 className="relative z-10 mx-auto font-serif text-4xl font-bold leading-tight text-[#1B1F3B] md:text-5xl">
-                The way development <span className="italic">should&apos;ve</span>
+                Development, <span className="italic">reimagined</span>
                 <br />
-                been done in the <span className="text-primary">first place</span>
+                for <span className="text-primary">dreamers</span>
               </h2>
             </div>
           </div>
@@ -319,7 +355,7 @@ export default function Home() {
               },
               {
                 title: "Request",
-                description: "Submit unlimited development requests—whether it’s a full MVP, new feature, or a quick bug fix, we’ve got you covered.",
+                description: "Submit unlimited development requests—whether it’s a full MVP, landing page, or a quick bug fix, we’ve got you covered.",
                 color: "bg-gradient-to-br from-secondary to-[#1B1F3B]",
                 icon: <Image src={request} alt="request" width={40}/>,
                 pattern:
@@ -352,15 +388,18 @@ export default function Home() {
         <section ref={benefitsRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
           <div className="mb-16 text-center">
             <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
-              Membership Benefits
+            Your Builder&apos;s Advantage
             </div>
             <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
-              It&apos;s <span className="italic">&quot;you&apos;ll never go back&quot;</span> better
+            It&apos;s <span className='italic'>&apos;game-changer&apos;</span> brilliant
+
+
             </h2>
             <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
             <p className="mx-auto max-w-2xl text-lg text-black/70">
-              BuildQuick replaces unreliable freelancers and expensive agencies for one flat monthly fee, with MVPs
-              delivered so fast you won&apos;t want to go anywhere else.
+            Say goodbye to flaky freelancers and overpriced agencies—BuildQuick delivers unlimited development for a single monthly fee. From MVPs to AI agents, your projects launch at lightning speed, keeping you ahead of the game.
+
+
             </p>
           </div>
 
@@ -368,25 +407,25 @@ export default function Home() {
             {[
               {
                 icon: <Image src={lightning} alt="lightning"/>,
-                title: "Fast delivery",
+                title: "Lightning-Fast Dev Hub",
                 description:
-                  "Get your MVP built in days, not months. We work fast to help you validate your idea quickly.",
+                  "Moving at warp speed to bring your ideas to life, so you can test and iterate without the wait.",
               },
               {
                 icon: <Image src={pricing} alt="pricing"/>,
-                title: "Fixed monthly rate",
+                title: "One Price, Endless Builds",
                 description:
-                  "No surprises here! Pay the same fixed price each month, regardless of how much you request.",
+                  "A single monthly fee unlocks unlimited development—no hidden costs, no matter how much you create.",
               },
               {
                 icon: <Image src={top} alt="top quality"/>,
-                title: "Top-notch quality",
-                description: "Senior-level development, on demand. Get expert quality whenever you need it—fast, reliable, and hassle-free.",
+                title: "Elite Development Craft",
+                description: "Access senior-grade expertise whenever you need it, delivered with speed, precision, and zero stress ",
               },
               {
                 icon: <Image src={scalable} alt="scalable"/>,
-                title: "Flexible and scalable",
-                description: "Total flexibility. Adjust your workload anytime—scale up, slow down, or cancel whenever it works for you.",
+                title: "Scale with Total Freedom",
+                description: "Ramp up, dial back, or pause anytime—your subscription adapts to your rhythm, hassle-free.",
               },
             ].map((benefit, index) => (
               <div key={index} className="group relative benefit-card">
@@ -426,26 +465,30 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              
               <div className="mb-2 inline-block rounded-md bg-black px-4 py-1 text-sm font-bold text-white">
                 Start today
               </div>
+              
               <h3 className="mb-2 text-2xl font-bold">Join BuildQuick</h3>
               <p className="mb-4 text-black/70">One subscription to rule them all.</p>
+              <Link href={'https://calendly.com/antonio-36xn/new-meeting'}>
               <Button
                 className="mb-4 h-10 w-full rounded-md border-2 border-black bg-black px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
                 variant="default"
               >
                 Let&apos;s talk
               </Button>
+              </Link>
               <div className="flex items-center gap-2 text-sm text-black/70">
                 <Clock className="h-4 w-4" />
-                <span>Book a 15-min intro call</span>
+                <span>Book a 30-min intro call</span>
               </div>
             </div>
 
             <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-[#1B1F3B] p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] pricing-card">
               <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,#F4C542_25%,transparent_25%,transparent_50%,#F4C542_50%,#F4C542_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wider text-white/70">Monthly Club</div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wider text-white/70">Builder&apos;s Pass</div>
               <div className="mb-6 border-b border-white/10 pb-6">
                 <div className="flex items-baseline">
                   <span className="text-4xl font-bold text-white">$499</span>
@@ -484,13 +527,14 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
+              <Link href='https://buy.stripe.com/eVacOcfVxeRL2n6fYY'>
               <Button
                 className="h-12 w-full rounded-md border-2 border-black bg-primary px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
                 variant="default"
               >
                 Join today
               </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -560,14 +604,16 @@ export default function Home() {
               <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-gradient-to-br from-primary to-[#F8D980] p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)]">
                 <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,white_25%,transparent_25%,transparent_50%,white_50%,white_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
                 <div className="mb-4 text-4xl">📞</div>
-                <h3 className="mb-2 text-2xl font-bold text-white">Book a 15-min intro call</h3>
+                <h3 className="mb-2 text-2xl font-bold text-white">Book a 30-min intro call</h3>
                 <p className="mb-6 text-white/90">Have more questions? Schedule a quick call with us.</p>
+                <Link href='https://calendly.com/antonio-36xn/new-meeting'>
                 <Button
                   className="h-10 w-full rounded-md border-2 border-black bg-white px-6 text-sm font-bold text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
                   variant="outline"
                 >
-                  Book a call
+                  Let&apos;s talk
                 </Button>
+                </Link>
               </div>
             </div>
 
@@ -576,7 +622,7 @@ export default function Home() {
                 {
                   question: "How fast will I receive my MVP?",
                   answer:
-                    "Most MVPs can be built in 4-6 weeks, depending on complexity. We work in sprints to deliver value quickly.",
+                    "Most MVPs can be built in 5 days up to 4 weeks, depending on complexity. We work in sprints to deliver value quickly.",
                 },
                 {
                   question: "Is there a limit to how many requests I can make?",
@@ -591,7 +637,7 @@ export default function Home() {
                 {
                   question: "What tech stack do you use?",
                   answer:
-                    "We primarily use React, Next.js, Node.js, and various databases like MongoDB and PostgreSQL. We can adapt to your needs.",
+                    "We primarily use React, Next.js, Node.js, Express, PayloadCMS and various databases like MongoDB and PostgreSQL. We can adapt to your needs.",
                 },
                 {
                   question: "Can I use BuildQuick for just a month?",
@@ -620,16 +666,16 @@ export default function Home() {
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#1B1F3B] bg-primary text-2xl shadow-[2px_2px_0px_0px_rgba(27,31,59,1)]">
                 <Image src={pause} alt="pause" width={120} height={120}/>
               </div>
-              <h3 className="mb-2 text-2xl font-bold text-[#1B1F3B]">Pause anytime</h3>
-              <p className="text-[#444444]">Temporarily pause your subscription anytime, no sweat.</p>
+              <h3 className="mb-2 text-2xl font-bold text-[#1B1F3B]">Freeze when you need</h3>
+              <p className="text-[#444444]">Take a break from your plan anytime, effortlessly.</p>
             </div>
 
             <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[6px_6px_0px_0px_rgba(27,31,59,1)] flexible-card">
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#1B1F3B] bg-primary text-2xl shadow-[2px_2px_0px_0px_rgba(27,31,59,1)]">
                 <Image src={testing} alt="testing" width={120} height={120}/>
               </div>
-              <h3 className="mb-2 text-2xl font-bold text-[#1B1F3B]">Try it for a week</h3>
-              <p className="text-[#444444]">Not loving it after a week? Get 75% back, no questions asked.</p>
+              <h3 className="mb-2 text-2xl font-bold text-[#1B1F3B]">Test Drive for 7 Days</h3>
+              <p className="text-[#444444]">Not hooked yet? Claim 50% back, hassle-free.</p>
             </div>
           </div>
         </section>
@@ -642,6 +688,7 @@ export default function Home() {
               <Image src={logo} alt="logo image " width={120} height={120}/>
             </div>
             <div className="flex gap-4">
+              <Link href='https://x.com/_buildquick'>
               <Button
                 className="h-9 w-9 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button"
                 variant="outline"
@@ -663,29 +710,8 @@ export default function Home() {
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                 </svg>
               </Button>
-              <Button
-                className="h-9 w-9 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button"
-                variant="outline"
-                size="icon"
-                aria-label="Instagram"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4"
-                >
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                </svg>
-              </Button>
+              </Link>
+              <Link href={'https://www.linkedin.com/in/antonio-kodheli-1430aa290/'}>
               <Button
                 className="h-9 w-9 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button"
                 variant="outline"
@@ -709,6 +735,7 @@ export default function Home() {
                   <circle cx="4" cy="4" r="2" />
                 </svg>
               </Button>
+              </Link>
             </div>
           </div>
           <div className="mt-8 border-t-2 border-black/10 pt-8 text-center text-xs text-black/70">
