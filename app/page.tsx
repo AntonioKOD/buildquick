@@ -7,6 +7,18 @@ import { Button } from "@/components/ui/button"
 import anime from 'animejs';
 import logo from '@/public/logo_buildquick.svg'
 import Image from "next/image";
+import pause from "@/public/pause.svg"
+import sub from "@/public/sub.svg"
+import testing from "@/public/testing.svg"
+import receive from "@/public/receive.svg"
+import request from "@/public/request.svg"
+import lightning from "@/public/lightning.svg"
+import pricing from "@/public/pricing.svg"
+import rocket from "@/public/rocket.svg"
+import top from "@/public/top.svg"
+import scalable from "@/public/scalable.svg"
+import talk from "@/public/talk.svg"
+import Link from "next/link";
 
 export default function Home() {
   const heroRef = useRef(null)
@@ -197,16 +209,10 @@ export default function Home() {
         </div>
         <div className="flex items-center gap-4">
           <Button
-            className="h-10 rounded-md border-2 border-[#1B1F3B] bg-background px-6 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
-            variant="outline"
-          >
-            Login
-          </Button>
-          <Button
             className="h-10 rounded-md border-2 border-[#1B1F3B] bg-[#1B1F3B] px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
             variant="default"
           >
-            Book a call
+            Let&apos; talk
           </Button>
         </div>
       </header>
@@ -238,12 +244,6 @@ export default function Home() {
                   >
                     Start today
                   </Button>
-                  <Button
-                    className="h-12 rounded-md border-2 border-[#1B1F3B] bg-background px-8 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
-                    variant="outline"
-                  >
-                    See pricing
-                  </Button>
                 </div>
               </div>
               <div className="relative hero-element">
@@ -252,18 +252,9 @@ export default function Home() {
                   <div className="absolute -bottom-12 -left-12 h-24 w-24 rounded-full bg-primary opacity-50 blur-xl"></div>
                   <div className="relative z-10 text-center text-white">
                     <div className="mb-4 flex justify-center">
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-black bg-primary">
-                          <div className="flex h-full w-full items-center justify-center text-2xl">😊</div>
-                        </div>
+                      <div className="text-center">
                         <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-black bg-yellow-400">
-                          <div className="flex h-full w-full items-center justify-center text-2xl">😊</div>
-                        </div>
-                        <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-black bg-blue-500">
-                          <div className="flex h-full w-full items-center justify-center text-2xl">😊</div>
-                        </div>
-                        <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-black bg-black">
-                          <div className="flex h-full w-full items-center justify-center text-2xl text-white">😊</div>
+                          <div className="flex h-full w-full items-center justify-center text-4xl"><Image src={rocket} alt='rocket' width={120} height={120}/></div>
                         </div>
                       </div>
                     </div>
@@ -272,12 +263,14 @@ export default function Home() {
                     </div>
                     <h2 className="mb-2 text-3xl font-bold">Join BuildQuick</h2>
                     <p className="mb-6">One subscription to rule them all.</p>
+                    <Link href="#pricing">
                     <Button
                       className="h-10 w-full rounded-md border-2 border-black bg-white px-6 text-sm font-bold text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
                       variant="outline"
                     >
                       See pricing
                     </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -321,22 +314,22 @@ export default function Home() {
                 title: "Subscribe",
                 description: "Subscribe to our $499/month plan and request as many development tasks as you'd like.",
                 color: "bg-gradient-to-br from-primary to-[#F8D980]",
-                icon: "💳",
+                icon: <Image src={sub} alt="subscribe" width={40}/>,
                 pattern: "bg-[radial-gradient(black_1px,transparent_1px)] bg-[length:10px_10px]",
               },
               {
                 title: "Request",
-                description: "Request whatever you'd like, from full MVPs to feature additions and bug fixes.",
+                description: "Submit unlimited development requests—whether it’s a full MVP, new feature, or a quick bug fix, we’ve got you covered.",
                 color: "bg-gradient-to-br from-secondary to-[#1B1F3B]",
-                icon: "🚀",
+                icon: <Image src={request} alt="request" width={40}/>,
                 pattern:
                   "bg-[linear-gradient(45deg,black_25%,transparent_25%,transparent_50%,black_50%,black_75%,transparent_75%,transparent)] bg-[length:6px_6px]",
               },
               {
                 title: "Receive",
-                description: "Receive your development work within days, not weeks or months.",
+                description: "Get your development work delivered in just a few days—no long waits, no bottlenecks, just fast, high-quality results.",
                 color: "bg-gradient-to-br from-primary to-[#1B1F3B]",
-                icon: "✅",
+                icon: <Image src={receive} alt="receive" width={40}/>,
                 pattern:
                   "bg-[linear-gradient(to_right,black_1px,transparent_1px),linear-gradient(to_bottom,black_1px,transparent_1px)] bg-[length:10px_10px]",
               },
@@ -374,26 +367,26 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                icon: "⚡",
+                icon: <Image src={lightning} alt="lightning"/>,
                 title: "Fast delivery",
                 description:
                   "Get your MVP built in days, not months. We work fast to help you validate your idea quickly.",
               },
               {
-                icon: "💰",
+                icon: <Image src={pricing} alt="pricing"/>,
                 title: "Fixed monthly rate",
                 description:
                   "No surprises here! Pay the same fixed price each month, regardless of how much you request.",
               },
               {
-                icon: "⭐",
+                icon: <Image src={top} alt="top quality"/>,
                 title: "Top-notch quality",
-                description: "Senior-level development quality at your fingertips, whenever you need it.",
+                description: "Senior-level development, on demand. Get expert quality whenever you need it—fast, reliable, and hassle-free.",
               },
               {
-                icon: "🔄",
+                icon: <Image src={scalable} alt="scalable"/>,
                 title: "Flexible and scalable",
-                description: "Scale up or down as needed, and pause or cancel at anytime.",
+                description: "Total flexibility. Adjust your workload anytime—scale up, slow down, or cancel whenever it works for you.",
               },
             ].map((benefit, index) => (
               <div key={index} className="group relative benefit-card">
@@ -410,7 +403,7 @@ export default function Home() {
         </section>
 
         {/* Pricing Section */}
-        <section ref={pricingRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
+        <section ref={pricingRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32" id="pricing">
           <div className="mb-16 text-center">
             <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
               Pricing
@@ -427,18 +420,9 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] pricing-card">
               <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,#F4C542_25%,transparent_25%,transparent_50%,#F4C542_50%,#F4C542_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
               <div className="mb-4 flex justify-center">
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-black bg-primary">
-                    <div className="flex h-full w-full items-center justify-center text-xl">😊</div>
-                  </div>
-                  <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-black bg-yellow-400">
-                    <div className="flex h-full w-full items-center justify-center text-xl">😊</div>
-                  </div>
-                  <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-black bg-blue-500">
-                    <div className="flex h-full w-full items-center justify-center text-xl">😊</div>
-                  </div>
-                  <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-black bg-black">
-                    <div className="flex h-full w-full items-center justify-center text-xl text-white">😊</div>
+                <div className="text-center">
+                  <div className="h-30 w-30 overflow-hidden rounded-full border-2 border-black bg-primary">
+                    <div className="flex h-full w-full items-center justify-center text-4xl"><Image src={talk} alt="talk bubble"/></div>
                   </div>
                 </div>
               </div>
@@ -451,7 +435,7 @@ export default function Home() {
                 className="mb-4 h-10 w-full rounded-md border-2 border-black bg-black px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
                 variant="default"
               >
-                See pricing
+                Let&apos;s talk
               </Button>
               <div className="flex items-center gap-2 text-sm text-black/70">
                 <Clock className="h-4 w-4" />
@@ -511,7 +495,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials */}
+        {/* Testimonials 
         <section ref={testimonialsRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
           <div className="mb-16 text-center">
             <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-5xl">What our clients say</h2>
@@ -559,6 +543,9 @@ export default function Home() {
             ))}
           </div>
         </section>
+        */}
+
+        
 
         {/* FAQ Section */}
         <section ref={faqRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
@@ -631,7 +618,7 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-2">
             <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[6px_6px_0px_0px_rgba(27,31,59,1)] flexible-card">
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#1B1F3B] bg-primary text-2xl shadow-[2px_2px_0px_0px_rgba(27,31,59,1)]">
-                ⏸️
+                <Image src={pause} alt="pause" width={120} height={120}/>
               </div>
               <h3 className="mb-2 text-2xl font-bold text-[#1B1F3B]">Pause anytime</h3>
               <p className="text-[#444444]">Temporarily pause your subscription anytime, no sweat.</p>
@@ -639,7 +626,7 @@ export default function Home() {
 
             <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[6px_6px_0px_0px_rgba(27,31,59,1)] flexible-card">
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#1B1F3B] bg-primary text-2xl shadow-[2px_2px_0px_0px_rgba(27,31,59,1)]">
-                🧪
+                <Image src={testing} alt="testing" width={120} height={120}/>
               </div>
               <h3 className="mb-2 text-2xl font-bold text-[#1B1F3B]">Try it for a week</h3>
               <p className="text-[#444444]">Not loving it after a week? Get 75% back, no questions asked.</p>
