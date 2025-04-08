@@ -38,6 +38,9 @@ export default function CustomCalendlyWidget() {
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date())
   const [bookingDetails, setBookingDetails] = useState<any>(null)
 
+  // Add this near the top of the component, after the useState declarations
+  const [calendlyUsername] = useState("antonio-36xn")
+
   // Initialize with a weekday if current day is weekend
   useEffect(() => {
     const today = new Date()
@@ -107,7 +110,9 @@ export default function CustomCalendlyWidget() {
     async function fetchEventTypes() {
       try {
         setIsLoading(true)
-        const response = await fetch(`/api/calendly?action=eventTypes`)
+
+        // Use the specific username
+        const response = await fetch(`/api/calendly?action=eventTypes&username=${calendlyUsername}`)
 
         if (!response.ok) {
           throw new Error(`Failed to fetch event types: ${response.status}`)
@@ -137,7 +142,7 @@ export default function CustomCalendlyWidget() {
     }
 
     fetchEventTypes()
-  }, [])
+  }, [calendlyUsername])
 
   // Handle time slot selection
   const handleSelectTime = (time: string) => {
@@ -165,6 +170,7 @@ export default function CustomCalendlyWidget() {
         name: formData.name,
         email: formData.email,
         message: formData.message || "",
+        calendly_username: calendlyUsername,
       }
 
       console.log("Creating booking:", bookingData)
@@ -183,6 +189,23 @@ export default function CustomCalendlyWidget() {
 
       const data = await response.json()
       console.log("Booking created:", data)
+
+      // After the data is received from the API
+      if (data.redirect && data.scheduling_url) {
+        // Open the Calendly scheduling page in a new tab
+        window.open(data.scheduling_url, "_blank")
+
+        // Still show success in our UI
+        setBookingDetails({
+          start_time: data.start_time,
+          event_name: data.event_name || meetingType.name,
+          event_duration: data.event_duration || meetingType.duration,
+        })
+
+        // Move to success step
+        setBookingStep("success")
+        return
+      }
 
       // Store booking details for the success screen
       setBookingDetails({
