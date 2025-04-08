@@ -2,7 +2,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { CheckCircle, ChevronDown, Clock } from "lucide-react"
+import { ArrowRight, CheckCircle, ChevronDown, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import anime from 'animejs';
 import logo from '@/public/logo_buildquick.svg'
@@ -17,7 +17,6 @@ import pricing from "@/public/pricing.svg"
 import rocket from "@/public/rocket.svg"
 import top from "@/public/top.svg"
 import scalable from "@/public/scalable.svg"
-import talk from "@/public/talk.svg"
 import Link from "next/link";
 import contentful from "@/public/contentful.svg"
 import next from '@/public/nextjs.svg'
@@ -470,8 +469,8 @@ export default function Home() {
             <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
           </div>
 
-          <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
-            <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] pricing-card">
+          <div className="mx-auto max-w-4xl gap-8 ">
+           {/* <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] pricing-card">
               <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,#F4C542_25%,transparent_25%,transparent_50%,#F4C542_50%,#F4C542_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
               <div className="mb-4 flex justify-center">
                 <div className="text-center">
@@ -499,7 +498,7 @@ export default function Home() {
                 <Clock className="h-4 w-4" />
                 <span>Book a 30-min intro call</span>
               </div>
-            </div>
+            </div>*/}
 
             <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-[#1B1F3B] p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] pricing-card">
               <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,#F4C542_25%,transparent_25%,transparent_50%,#F4C542_50%,#F4C542_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
@@ -671,6 +670,58 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section ref={bookingRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
+          <div className="mb-16 text-center">
+            <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
+            Let&apos;s Start Building
+            </div>
+            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
+              Ready to <span className="italic">bring your idea to life?</span>
+            </h2>
+            <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
+          </div>
+
+          <div className="booking-section-wrapper">
+          <div className="relative">
+      {/* Decorative elements */}
+      <div className="absolute -left-4 -top-4 h-16 w-16 rounded-full bg-primary opacity-20 md:-left-8 md:-top-8 md:h-32 md:w-32"></div>
+      <div className="absolute -right-4 bottom-4 h-20 w-20 rounded-full bg-secondary opacity-20 md:-right-8 md:bottom-8 md:h-40 md:w-40"></div>
+
+      <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)]">
+        <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,white_25%,transparent_25%,transparent_50%,white_50%,white_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
+
+        <div className="flex flex-col items-center text-center">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+            <Mail className="h-8 w-8 text-primary" />
+          </div>
+
+          <h2 className="mb-4 font-serif text-4xl font-bold leading-tight text-[#1B1F3B]">Share Your Vision</h2>
+
+          <div className="mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
+
+          <p className="mb-8 max-w-2xl text-lg text-[#444444]">
+          Got a Project to Build? We&apos;re eager to dive into your idea. Ping us at{" "}
+            <Link href="mailto:hello@buildquick.io" className="font-medium text-primary underline">
+              hello@buildquick.io
+            </Link>{" "}
+            for the quickest reply.
+          </p>
+
+          <Button
+            className="h-12 rounded-md border-2 border-[#1B1F3B] bg-primary px-8 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)]"
+            asChild
+          >
+            <a href="mailto:hello@buildquick.io">
+              Email Us Now
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        </div>
+      </div>
+    </div>
           </div>
         </section>
 
