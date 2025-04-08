@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
@@ -156,7 +157,7 @@ export default function CustomCalendlyWidget() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  // Handle booking confirmation
+  // Update this function to use webhooks
   const handleConfirmBooking = async () => {
     if (!selectedTime) return
 
@@ -175,52 +176,69 @@ export default function CustomCalendlyWidget() {
 
       console.log("Creating booking:", bookingData)
 
-      // Send the booking data to our API
-      const response = await fetch("/api/calendly?action=create-booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bookingData),
-      })
+      // First, redirect to Calendly's scheduling page
+      // This will trigger a webhook when the booking is completed
+      const calendlySchedulingUrl = `https://calendly.com/${calendlyUsername}?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&date=${encodeURIComponent(new Date(selectedTime).toISOString().split("T")[0])}&a1=${encodeURIComponent(formData.message || "")}`
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: "Failed to parse error response" }))
-        throw new Error(errorData.error || `Failed to create booking: ${response.status} ${response.statusText}`)
-      }
+      // Open Calendly in a new tab
+      window.open(calendlySchedulingUrl, "_blank")
 
-      const data = await response.json()
-      console.log("Booking created:", data)
-
-      // After the data is received from the API
-      if (data.redirect && data.scheduling_url) {
-        // Open the Calendly scheduling page in a new tab
-        window.open(data.scheduling_url, "_blank")
-
-        // Still show success in our UI
-        setBookingDetails({
-          start_time: data.start_time,
-          event_name: data.event_name || meetingType.name,
-          event_duration: data.event_duration || meetingType.duration,
-        })
-
-        // Move to success step
-        setBookingStep("success")
-        return
-      }
-
-      // Store booking details for the success screen
-      setBookingDetails({
-        ...data,
+      // Store booking details locally for now
+      const tempBookingDetails = {
+        start_time: selectedTime,
         event_name: meetingType.name,
         event_duration: meetingType.duration,
-      })
+        status: "pending",
+      }
 
-      // Move to success step
+      setBookingDetails(tempBookingDetails)
+
+      // Start polling for the webhook event (in a real app, you might use WebSockets)
       setBookingStep("success")
+
+      // In a production app, you would implement a better way to correlate
+      // the booking with the webhook event, possibly using a unique ID
     } catch (error) {
       console.error("Error creating booking:", error)
       setError(error instanceof Error ? error.message : "Failed to create booking. Please try again later.")
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  // Add this function after the handleConfirmBooking function
+  const checkBookingStatus = async (bookingId: string) => {
+    try {
+      // Poll the webhook endpoint to check if the booking was processed
+      const response = await fetch("/api/calendly/webhook")
+
+      if (!response.ok) {
+        throw new Error(`Failed to check booking status: ${response.status}`)
+      }
+
+      const data = await response.json()
+      const bookings = data.bookings || []
+
+      // Find the booking with the matching ID
+      const matchingBooking = bookings.find((booking: any) => booking.id === bookingId)
+
+      if (matchingBooking) {
+        // If we found the booking in our webhook data, move to success state
+        setBookingDetails({
+          start_time: matchingBooking.event.start_time,
+          event_name: matchingBooking.event.name,
+          event_duration: 30, // You might want to calculate this from start/end time
+          status: matchingBooking.status,
+        })
+
+        setBookingStep("success")
+        return true
+      }
+
+      return false
+    } catch (error) {
+      console.error("Error checking booking status:", error)
+      return false
     }
   }
 

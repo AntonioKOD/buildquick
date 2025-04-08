@@ -25,7 +25,6 @@ import pacific from '@/public/pacific.svg'
 import rolandmusic from '@/public/rolandmusic.svg'
 import mongo from '@/public/mongo.svg'
 import countrygarden from '@/public/countrygarden.svg'
-import { BookingSection } from "@/components/booking-section";
 
 export default function Home() {
   const heroRef = useRef(null)
@@ -672,24 +671,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-        <section ref={bookingRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
-          <div className="mb-16 text-center">
-            <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
-              Schedule a Call
-            </div>
-            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
-              Ready to <span className="italic">get started?</span>
-            </h2>
-            <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
-            <p className="mx-auto max-w-2xl text-lg text-black/70">
-              Book a quick 15-minute call to see if BuildQuick is the right fit for your project.
-            </p>
-          </div>
-
-          <div className="booking-section-wrapper">
-            <BookingSection />
           </div>
         </section>
 
