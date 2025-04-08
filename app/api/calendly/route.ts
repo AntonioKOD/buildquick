@@ -55,7 +55,7 @@ type BookingRequest = {
 };
 
 // Helper function to verify webhook signatures.
-// Note: We compare both signatures as buffers with hex encoding.
+// It computes an HMAC digest and compares the given signature and computed digest as hex-encoded buffers.
 function verifyWebhookSignature(
   payload: string,
   signature: string,
@@ -71,7 +71,7 @@ function verifyWebhookSignature(
   return crypto.timingSafeEqual(signatureBuffer, computedSignatureBuffer);
 }
 
-// Helper function to get access token using client credentials
+// Helper function to get an access token using client credentials.
 async function getAccessToken(): Promise<string> {
   const clientId = process.env.CALENDLY_CLIENT_ID;
   const clientSecret = process.env.CALENDLY_CLIENT_SECRET;
@@ -150,7 +150,6 @@ function getMockAvailability(startTime: string, endTime: string) {
       if (slotDate > new Date()) {
         const endSlotDate = new Date(slotDate);
         endSlotDate.setMinutes(slotDate.getMinutes() + 30);
-
         mockSlots.push({
           status: "available",
           start_time: slotDate.toISOString(),
@@ -197,7 +196,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const action = searchParams.get("action");
 
-  // Use mock data only in non-production environments.
+  // Use mock data only when not in production.
   const useMockData = process.env.NODE_ENV !== "production";
 
   try {
@@ -241,7 +240,7 @@ export async function GET(request: Request) {
       }
 
       const data: TokenResponse = await response.json();
-      // In a real app, securely store this token
+      // In a real application, securely store the token
       return NextResponse.json({ success: true, message: "Authentication successful" });
     }
 
@@ -249,7 +248,7 @@ export async function GET(request: Request) {
     if (action === "eventTypes") {
       const username = searchParams.get("username") || "antonio-36xn";
 
-      // If in development, return mock data.
+      // Return mock data in development
       if (useMockData) {
         console.log("Using mock data for event types");
         return NextResponse.json(getMockEventTypes());
@@ -266,7 +265,7 @@ export async function GET(request: Request) {
       };
 
       try {
-        // First, fetch the user data to get the proper URI.
+        // Fetch user data to get the correct URI.
         const userResponse = await fetch(`https://api.calendly.com/users/${username}`, {
           headers,
           cache: "no-store",
@@ -277,7 +276,7 @@ export async function GET(request: Request) {
         const userData = await userResponse.json();
         const userUri = userData.resource.uri;
 
-        // Then fetch event types for the user URI.
+        // Now fetch event types for the user.
         const response = await fetch(`https://api.calendly.com/event_types?user=${userUri}`, {
           headers,
           cache: "no-store",
@@ -304,7 +303,7 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: "Missing required parameters" }, { status: 400 });
       }
 
-      // In non-production, use mock data.
+      // Use mock data in development.
       if (useMockData) {
         console.log("Using mock data for availability");
         return NextResponse.json(getMockAvailability(startTime, endTime));
@@ -334,7 +333,7 @@ export async function GET(request: Request) {
           console.error(`Calendly API error: ${response.status} ${response.statusText}`);
           console.error(`Response body: ${errorText}`);
 
-          // If authentication fails, fallback to mock data
+          // Fallback to mock data if authentication fails.
           if (response.status === 401) {
             console.log("Authentication failed, using mock data instead");
             return NextResponse.json(getMockAvailability(startTime, endTime));
@@ -355,7 +354,10 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Invalid action specified" }, { status: 400 });
   } catch (error) {
     console.error("Calendly API error:", error);
-    return NextResponse.json({ error: error instanceof Error ? error.message : "Unknown error" }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Unknown error" },
+      { status: 500 },
+    );
   }
 }
 
@@ -363,7 +365,7 @@ export async function POST(request: Request) {
   const { searchParams } = new URL(request.url);
   const action = searchParams.get("action");
 
-  // Use mock data only in development
+  // Use mock data only when not in production.
   const useMockData = process.env.NODE_ENV !== "production";
 
   try {
@@ -372,14 +374,13 @@ export async function POST(request: Request) {
       const bookingData: BookingRequest = await request.json();
       const { event_type_uri, start_time, name, email, message, calendly_username } = bookingData;
 
-      // Validate required fields
+      // Validate required fields.
       if (!event_type_uri || !start_time || !name || !email) {
         return NextResponse.json({ error: "Missing required booking information" }, { status: 400 });
       }
 
-      // In development, simulate a booking
+      // Simulate booking in development.
       if (useMockData) {
-        // Simulate a delay
         await new Promise((resolve) => setTimeout(resolve, 1000));
         const mockBooking = createMockBooking(bookingData);
         return NextResponse.json({
@@ -397,7 +398,7 @@ export async function POST(request: Request) {
           return NextResponse.json({ error: "No Calendly API key or access token provided" }, { status: 500 });
         }
 
-        // Fetch event type details
+        // Fetch event type details.
         const eventTypeResponse = await fetch(event_type_uri, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -410,15 +411,15 @@ export async function POST(request: Request) {
         const eventTypeData = await eventTypeResponse.json();
         const schedulingUrl = eventTypeData.resource.scheduling_url;
 
-        // Calendly requires a redirect to their scheduling page
+        // Calendly requires a redirect to their scheduling page.
         return NextResponse.json({
           success: true,
           redirect: true,
-          scheduling_url: `${schedulingUrl}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(
-            email,
-          )}&date=${encodeURIComponent(new Date(start_time).toISOString().split("T")[0])}&a1=${encodeURIComponent(
-            message || "",
-          )}`,
+          scheduling_url: `${schedulingUrl}?name=${encodeURIComponent(
+            name,
+          )}&email=${encodeURIComponent(email)}&date=${encodeURIComponent(
+            new Date(start_time).toISOString().split("T")[0]
+          )}&a1=${encodeURIComponent(message || "")}`,
           start_time,
           event_name: eventTypeData.resource.name,
           event_duration: eventTypeData.resource.duration,
@@ -429,18 +430,18 @@ export async function POST(request: Request) {
           {
             error: error instanceof Error ? error.message : "Unknown error",
             fallback: true,
-            scheduling_url: `https://calendly.com/${calendly_username}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(
-              email,
-            )}`,
+            scheduling_url: `https://calendly.com/${calendly_username}?name=${encodeURIComponent(
+              name,
+            )}&email=${encodeURIComponent(email)}`,
           },
           { status: 200 },
         );
       }
     }
 
-    // Webhook event handling
+    // Handle webhook events
     else if (action === "webhook") {
-      // In development, simulate a webhook processing
+      // In development, simulate webhook processing.
       if (useMockData) {
         return NextResponse.json({ success: true, message: "Webhook processed (mock)" });
       }
@@ -449,21 +450,19 @@ export async function POST(request: Request) {
       if (!webhookSecret) {
         return NextResponse.json({ error: "Webhook signing secret not configured" }, { status: 500 });
       }
-      // Retrieve signature and timestamp headers
+
       const signature = request.headers.get("Calendly-Webhook-Signature");
       const timestamp = request.headers.get("Calendly-Webhook-Timestamp");
       if (!signature || !timestamp) {
         return NextResponse.json({ error: "Missing webhook signature headers" }, { status: 400 });
       }
 
-      // Get the raw request body
       const rawBody = await request.text();
       const isValid = verifyWebhookSignature(rawBody, signature, timestamp, webhookSecret);
       if (!isValid) {
         return NextResponse.json({ error: "Invalid webhook signature" }, { status: 401 });
       }
 
-      // Process webhook events
       const webhookEvent = JSON.parse(rawBody);
       switch (webhookEvent.event) {
         case "invitee.created":
@@ -472,7 +471,7 @@ export async function POST(request: Request) {
         case "invitee.canceled":
           console.log("Booking canceled:", webhookEvent.payload.invitee.uri);
           break;
-        // Add additional webhook event handling as needed
+        // Additional webhook events can be handled here.
       }
       return NextResponse.json({ success: true });
     }
@@ -480,6 +479,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid action specified" }, { status: 400 });
   } catch (error) {
     console.error("Calendly API error:", error);
-    return NextResponse.json({ error: error instanceof Error ? error.message : "Unknown error" }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Unknown error" },
+      { status: 500 },
+    );
   }
 }
