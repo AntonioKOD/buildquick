@@ -25,6 +25,7 @@ import pacific from '@/public/pacific.svg'
 import rolandmusic from '@/public/rolandmusic.svg'
 import mongo from '@/public/mongo.svg'
 import countrygarden from '@/public/countrygarden.svg'
+import { BookingSection } from "@/components/booking-section";
 
 export default function Home() {
   const heroRef = useRef(null)
@@ -35,6 +36,7 @@ export default function Home() {
   const testimonialsRef = useRef(null)
   const faqRef = useRef(null)
   const flexibleRef = useRef(null)
+  const bookingRef = useRef(null)
   
 
   useEffect(() => {
@@ -143,6 +145,20 @@ export default function Home() {
         }
       })
     }
+    const animateBooking = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          anime({
+            targets: ".booking-section-wrapper",
+            translateY: [50, 0],
+            opacity: [0, 1],
+            easing: "easeOutExpo",
+            duration: 800,
+          })
+          bookingObserver.unobserve(entry.target)
+        }
+      })
+    }
 
     const animateFlexible = (entries: any[]) => {
       entries.forEach((entry) => {
@@ -159,20 +175,20 @@ export default function Home() {
         }
       })
     }
-
     const processObserver = new IntersectionObserver(animateProcess, observerOptions)
     const benefitsObserver = new IntersectionObserver(animateBenefits, observerOptions)
     const pricingObserver = new IntersectionObserver(animatePricing, observerOptions)
     const testimonialsObserver = new IntersectionObserver(animateTestimonials, observerOptions)
     const faqObserver = new IntersectionObserver(animateFaq, observerOptions)
+    const bookingObserver = new IntersectionObserver(animateBooking, observerOptions)
     const flexibleObserver = new IntersectionObserver(animateFlexible, observerOptions)
 
-    const processNode = processRef.current;
-    if (processNode) processObserver.observe(processNode);
+    if (processRef.current) processObserver.observe(processRef.current)
     if (benefitsRef.current) benefitsObserver.observe(benefitsRef.current)
     if (pricingRef.current) pricingObserver.observe(pricingRef.current)
     if (testimonialsRef.current) testimonialsObserver.observe(testimonialsRef.current)
     if (faqRef.current) faqObserver.observe(faqRef.current)
+    if (bookingRef.current) bookingObserver.observe(bookingRef.current)
     if (flexibleRef.current) flexibleObserver.observe(flexibleRef.current)
 
     // Button hover animations
@@ -198,13 +214,13 @@ export default function Home() {
     })
 
     return () => {
-      if (processNode) processObserver.unobserve(processNode)
       if (processRef.current) processObserver.unobserve(processRef.current)
-      if (benefitsRef.current) benefitsObserver.unobserve(benefitsRef.current)
-      if (pricingRef.current) pricingObserver.unobserve(pricingRef.current)
-      if (testimonialsRef.current) testimonialsObserver.unobserve(testimonialsRef.current)
-      if (faqRef.current) faqObserver.unobserve(faqRef.current)
-      if (flexibleRef.current) flexibleObserver.unobserve(flexibleRef.current)
+        if (benefitsRef.current) benefitsObserver.unobserve(benefitsRef.current)
+        if (pricingRef.current) pricingObserver.unobserve(pricingRef.current)
+        if (testimonialsRef.current) testimonialsObserver.unobserve(testimonialsRef.current)
+        if (faqRef.current) faqObserver.unobserve(faqRef.current)
+        if (bookingRef.current) bookingObserver.unobserve(bookingRef.current)
+        if (flexibleRef.current) flexibleObserver.unobserve(flexibleRef.current)
     }
   }, [])
 
@@ -656,6 +672,24 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+        <section ref={bookingRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
+          <div className="mb-16 text-center">
+            <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
+              Schedule a Call
+            </div>
+            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
+              Ready to <span className="italic">get started?</span>
+            </h2>
+            <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
+            <p className="mx-auto max-w-2xl text-lg text-black/70">
+              Book a quick 15-minute call to see if BuildQuick is the right fit for your project.
+            </p>
+          </div>
+
+          <div className="booking-section-wrapper">
+            <BookingSection />
           </div>
         </section>
 
