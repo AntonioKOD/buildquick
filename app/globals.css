@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Light mode theme tokens */
-@theme {
+@theme{ 
 /* Base colors */
 --color-primary: #f4c542; /* Golden Sand - Primary Brand */
 --color-secondary: #1b1f3b; /* Midnight Navy - Dark Base */
@@ -54,6 +54,9 @@
 /* Font settings */
 --font-sans: "Inter", Arial, Helvetica, sans-serif;
 --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+
+
+
 }
 
 /* Base styles */
@@ -71,6 +74,7 @@
     scroll-behavior: smooth;
   }
 }
+
 
 /* Custom Pattern Styles */
 .card-pattern-grid {
@@ -102,5 +106,49 @@
 @media (min-width: 768px) {
   .container {
     max-width: 1200px;
+  }
+}
+
+
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+}
+
+/* Retro photo frame styles */
+.retro-photo-frame {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.retro-photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.retro-photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.05) 50%, transparent 100%);
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.75rem));
   }
 }

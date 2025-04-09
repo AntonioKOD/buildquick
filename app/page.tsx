@@ -24,6 +24,7 @@ import pacific from '@/public/pacific.svg'
 import rolandmusic from '@/public/rolandmusic.svg'
 import mongo from '@/public/mongo.svg'
 import countrygarden from '@/public/countrygarden.svg'
+import Showcase from "@/components/showcase";
 
 export default function Home() {
   const heroRef = useRef(null)
@@ -603,6 +604,22 @@ export default function Home() {
         </section>
         */}
 
+<section className="container mx-auto px-4 py-20 md:px-6 md:py-32">
+          <div className="mb-16 text-center">
+            <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
+              Our Work
+            </div>
+            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-5xl">
+              Projects we&apos;ve <span className="italic">built</span>
+            </h2>
+            <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
+            <p className="mx-auto max-w-2xl text-lg text-black/70">
+              Take a look at some of the projects we&apos;ve delivered for our clients.
+            </p>
+          </div>
+
+          <Showcase/>
+        </section>
         
 
         {/* FAQ Section */}
