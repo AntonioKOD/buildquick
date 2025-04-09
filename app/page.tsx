@@ -253,7 +253,7 @@ export default function Home() {
                   Develop Fast, Launch Now
                 </div>
                 <h1 className="mb-6 font-serif text-5xl font-bold leading-tight tracking-tight text-[#1B1F3B] hero-element md:text-6xl">
-                  Unlimited development
+                   Unlimited Development
                   <br />
                   <span className="italic">for MVPs</span>
                   <br />
@@ -264,7 +264,7 @@ export default function Home() {
                   I&apos;m your lead dev—building your ideas in days. Pause or cancel anytime.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Link href='https://buy.stripe.com/eVacOcfVxeRL2n6fYY'>
+                  <Link href='https://buy.stripe.com/3csg0obFhaBvgdW4gh'>
                     <Button
                       className="h-12 rounded-md border-2 border-[#1B1F3B] bg-primary px-8 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
                       variant="default"
@@ -506,7 +506,7 @@ export default function Home() {
               <div className="mb-2 text-sm font-bold uppercase tracking-wider text-white/70">Builder&apos;s Pass</div>
               <div className="mb-6 border-b border-white/10 pb-6">
                 <div className="flex items-baseline">
-                  <span className="text-4xl font-bold text-white">$499</span>
+                  <span className="text-4xl font-bold text-white">$799</span>
                   <span className="text-sm text-white/70">/month</span>
                 </div>
                 <div className="mt-2 inline-block rounded-md border border-white/20 px-3 py-0.5 text-xs text-white/70">
@@ -542,7 +542,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <Link href='https://buy.stripe.com/eVacOcfVxeRL2n6fYY'>
+              <Link href='https://buy.stripe.com/3csg0obFhaBvgdW4gh'>
               <Button
                 className="h-12 w-full rounded-md border-2 border-black bg-primary px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
                 variant="default"
