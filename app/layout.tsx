@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 
 const geistSans = Geist({
@@ -95,7 +96,7 @@ export default function RootLayout({
       >
 
         {children}
-
+        <GoogleTagManager gtmId="G-Q6NC95DWJK" />
       </body>
     </html>
   );
