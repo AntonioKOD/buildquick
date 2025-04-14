@@ -363,7 +363,7 @@ export default function Home() {
             {[
               {
                 title: "Subscribe",
-                description: "Subscribe to our $499/month plan and request as many development tasks as you'd like.",
+                description: "Subscribe to our $799/month plan and request as many development tasks as you'd like.",
                 color: "bg-gradient-to-br from-primary to-[#F8D980]",
                 icon: <Image src={sub} alt="subscribe" width={40}/>,
                 pattern: "bg-[radial-gradient(black_1px,transparent_1px)] bg-[length:10px_10px]",
