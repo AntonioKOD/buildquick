@@ -770,6 +770,14 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <Image src={logo} alt="logo image " width={120} height={120}/>
             </div>
+            <div>
+              <Link href={'https://brindle-mail-5c6.notion.site/Privacy-Policy-1d557c50f1e580f6a554f0b8b3453991'}>
+                <p className="text-sm text-[#1B1F3B]">Privacy Policy</p>
+              </Link>
+              <Link href={'https://brindle-mail-5c6.notion.site/Terms-of-Service-1d557c50f1e58035b356f819da1946ac'}>
+                <p className="text-sm text-[#1B1F3B]">Terms of Service</p>
+              </Link>
+            </div>
             <div className="flex gap-4">
               <Link href='https://x.com/_buildquick'>
               <Button
