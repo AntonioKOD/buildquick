@@ -26,6 +26,7 @@ import mongo from '@/public/mongo.svg'
 import countrygarden from '@/public/countrygarden.svg'
 import Showcase from "@/components/showcase";
 
+
 export default function Home() {
   const heroRef = useRef(null)
   const logoGridRef = useRef(null)

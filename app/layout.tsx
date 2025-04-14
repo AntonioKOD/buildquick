@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 
 const geistSans = Geist({
@@ -97,6 +98,36 @@ export default function RootLayout({
 
         {children}
         <GoogleTagManager gtmId="G-Q6NC95DWJK" />
+
+        <Script
+        strategy="afterInteractive"
+        src="https://script.getreditus.com/v2.js"
+      />
+
+      {/* Inline initialization script */}
+      <Script
+        id="reditus-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(w, d, s, p, t) {
+              w.gr = w.gr || function() {
+                w.gr.ce = 60;
+                w.gr.q = w.gr.q || [];
+                w.gr.q.push(arguments);
+              };
+              p = d.getElementsByTagName(s)[0];
+              t = d.createElement(s);
+              t.async = true;
+              t.src = "https://script.getreditus.com/v2.js";
+              p.parentNode.insertBefore(t, p);
+            })(window, document, "script");
+
+            gr("initCustomer", "e5dbd647-64e5-4177-a718-0075647ae0f5");
+            gr("track", "pageview");
+          `,
+        }}
+      />
       </body>
     </html>
   );
