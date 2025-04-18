@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
 
 
@@ -98,6 +98,7 @@ export default function RootLayout({
 
         {children}
         <GoogleTagManager gtmId="G-Q6NC95DWJK" />
+        <GoogleAnalytics gaId="G-Q6NC95DWJK" />
 
         <Script
         strategy="afterInteractive"
