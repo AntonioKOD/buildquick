@@ -2,7 +2,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { ArrowRight, Mail, Code, Globe, Smartphone } from "lucide-react"
+import { ArrowRight, Mail, Code, Globe, Database } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import anime from 'animejs';
 import Image from "next/image";
@@ -206,18 +206,18 @@ export default function Home() {
             <div className="relative grid gap-12 rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] md:grid-cols-2 md:items-center md:p-12">
               <div>
                 <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B] hero-element">
-                  Full-Stack Developer
+                  Full-Stack Web Developer
                 </div>
                 <h1 className="mb-6 font-serif text-5xl font-bold leading-tight tracking-tight text-[#1B1F3B] hero-element md:text-6xl">
                   Building Modern
                   <br />
-                  <span className="italic">Web & Mobile</span>
+                  <span className="italic">Web Applications</span>
                   <br />
-                  <span className="text-primary">Solutions</span>
+                  <span className="text-primary">With Cutting-Edge Tech</span>
                 </h1>
                 <div className="mb-4 h-1 w-24 bg-[#1B1F3B] hero-element"></div>
                 <p className="mb-8 text-lg text-black/70 hero-element">
-                  Specialized in Next.js with PayloadCMS for rapid development and React Native for cross-platform mobile apps. Based in Boston, MA.
+                  Specialized in Next.js with PayloadCMS for rapid development and the MERN stack for full-stack web applications. Based in Boston, MA.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link href='#portfolio'>
@@ -280,9 +280,9 @@ export default function Home() {
                 {[
                   { name: "Next.js", src: next },
                   { name: "PayloadCMS", src: contentful },
-                  { name: "React Native", src: pacific },
-                  { name: "JavaScript", src: countrygarden },
-                  { name: "TypeScript", src: rolandmusic },
+                  { name: "React", src: pacific },
+                  { name: "Node.js", src: countrygarden },
+                  { name: "Express.js", src: rolandmusic },
                   { name: "MongoDB", src: mongo }
                 ].map((logo, index) => (
                   <div 
@@ -313,9 +313,9 @@ export default function Home() {
               <div className="absolute -left-4 -top-4 h-8 w-8 border-2 border-[#1B1F3B] bg-primary geo-shape md:-left-8 md:-top-8 md:h-16 md:w-16"></div>
               <div className="absolute -right-4 -bottom-4 h-8 w-8 border-2 border-[#1B1F3B] bg-secondary geo-shape md:-right-8 md:-bottom-8 md:h-16 md:w-16"></div>
               <h2 className="relative z-10 mx-auto font-serif text-4xl font-bold leading-tight text-[#1B1F3B] md:text-5xl">
-                &quot;Fast development <span className="italic">meets modern technology</span>
+                &quot;Rapid development <span className="italic">meets modern technology</span>
                 <br />
-                for <span className="text-primary">exceptional results&quot;</span>
+                for <span className="text-primary">scalable web solutions&quot;</span>
               </h2>
             </div>
           </div>
@@ -332,7 +332,7 @@ export default function Home() {
               </h2>
             <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
             <p className="mx-auto max-w-2xl text-lg text-black/70">
-              Modern web and mobile development solutions built with cutting-edge technologies.
+              Modern web development solutions built with cutting-edge technologies for scalable applications.
             </p>
           </div>
 
@@ -340,22 +340,22 @@ export default function Home() {
             {[
               {
                 title: "Next.js + PayloadCMS",
-                description: "Rapid web development with Next.js and PayloadCMS for content management, delivering fast and scalable websites.",
+                description: "Rapid web development with Next.js and PayloadCMS for content management, delivering fast and scalable websites with modern features.",
                 color: "bg-gradient-to-br from-primary to-[#F8D980]",
                 icon: <Globe className="h-8 w-8" />,
                 pattern: "bg-[radial-gradient(black_1px,transparent_1px)] bg-[length:10px_10px]",
               },
               {
-                title: "React Native Mobile",
-                description: "Cross-platform mobile app development with React Native, bringing your ideas to iOS and Android simultaneously.",
+                title: "MERN Stack Development",
+                description: "Full-stack web applications using MongoDB, Express.js, React, and Node.js for complete end-to-end solutions.",
                 color: "bg-gradient-to-br from-secondary to-[#1B1F3B]",
-                icon: <Smartphone className="h-8 w-8" />,
+                icon: <Database className="h-8 w-8" />,
                 pattern:
                   "bg-[linear-gradient(45deg,black_25%,transparent_25%,transparent_50%,black_50%,black_75%,transparent_75%,transparent)] bg-[length:6px_6px]",
               },
               {
                 title: "JavaScript Solutions",
-                description: "Full-stack JavaScript development with TypeScript, Node.js, and modern frameworks for robust applications.",
+                description: "Full-stack JavaScript development with TypeScript, modern frameworks, and best practices for robust web applications.",
                 color: "bg-gradient-to-br from-primary to-[#1B1F3B]",
                 icon: <Code className="h-8 w-8" />,
                 pattern:
@@ -392,23 +392,23 @@ export default function Home() {
             {[
               {
                 icon: <Image src={lightning} alt="lightning"/>,
-                title: "Rapid Development",
-                description: "Next.js with PayloadCMS for lightning-fast website deployment and content management.",
+                title: "Rapid Prototyping",
+                description: "Next.js with PayloadCMS for lightning-fast website deployment and content management systems.",
               },
               {
-                icon: <Image src={pricing} alt="mobile"/>,
-                title: "Mobile Apps",
-                description: "React Native for cross-platform mobile applications with native performance.",
+                icon: <Image src={pricing} alt="MERN"/>,
+                title: "MERN Stack",
+                description: "Full-stack development with MongoDB, Express.js, React, and Node.js for scalable web applications.",
               },
               {
                 icon: <Image src={top} alt="javascript"/>,
                 title: "Modern JavaScript",
-                description: "TypeScript, Node.js, and modern ES6+ features for robust backend solutions.",
+                description: "TypeScript, ES6+, and modern frameworks for robust and maintainable web applications.",
               },
               {
                 icon: <Image src={scalable} alt="database"/>,
-                title: "Database Integration",
-                description: "MongoDB, PostgreSQL, and modern database solutions for scalable data management.",
+                title: "Database Design",
+                description: "MongoDB, PostgreSQL, and modern database solutions for scalable and efficient data management.",
               },
             ].map((skill, index) => (
               <div key={index} className="group relative skill-card">
@@ -435,7 +435,7 @@ export default function Home() {
             </h2>
             <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
             <p className="mx-auto max-w-2xl text-lg text-black/70">
-              A showcase of web and mobile applications built with modern technologies.
+              A showcase of web applications built with Next.js, PayloadCMS, and the MERN stack.
             </p>
           </div>
 
@@ -475,7 +475,7 @@ export default function Home() {
                   <div className="mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
 
                   <p className="mb-8 max-w-2xl text-lg text-[#444444]">
-                    Need a website, mobile app, or custom solution? I&apos;d love to discuss your project. Reach out at{" "}
+                    Need a website, web application, or custom solution? I&apos;d love to discuss your project. Reach out at{" "}
                     <Link href="mailto:antonio_kodheli@icloud.com" className="font-medium text-primary underline">
                       antonio_kodheli@icloud.com
                     </Link>{" "}
@@ -509,8 +509,8 @@ export default function Home() {
               <div className="text-2xl font-bold text-[#1B1F3B]">{"{codeWithToni}"}</div>
             </div>
             <div className="text-center">
-              <p className="text-sm text-[#1B1F3B]">Full-Stack Developer & Mobile App Specialist</p>
-              <p className="text-sm text-[#444444]">Boston, MA</p>
+              <p className="text-sm text-[#1B1F3B]">Full-Stack Web Developer</p>
+              <p className="text-sm text-[#444444]">Next.js • PayloadCMS • MERN Stack</p>
             </div>
             <div className="flex gap-4">
               <Link href='https://twitter.com/antonio_codes'>
