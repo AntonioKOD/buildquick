@@ -2,16 +2,10 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { ArrowRight, CheckCircle, ChevronDown, Mail } from "lucide-react"
+import { ArrowRight, Mail, Code, Globe, Smartphone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import anime from 'animejs';
-import logo from '@/public/logo_buildquick.svg'
 import Image from "next/image";
-import pause from "@/public/pause.svg"
-import sub from "@/public/sub.svg"
-import testing from "@/public/testing.svg"
-import receive from "@/public/receive.svg"
-import request from "@/public/request.svg"
 import lightning from "@/public/lightning.svg"
 import pricing from "@/public/pricing.svg"
 import rocket from "@/public/rocket.svg"
@@ -30,13 +24,11 @@ import Showcase from "@/components/showcase";
 export default function Home() {
   const heroRef = useRef(null)
   const logoGridRef = useRef(null)
-  const processRef = useRef(null)
-  const benefitsRef = useRef(null)
-  const pricingRef = useRef(null)
-  const testimonialsRef = useRef(null)
+  const servicesRef = useRef(null)
+  const skillsRef = useRef(null)
+  const portfolioRef = useRef(null)
   const faqRef = useRef(null)
-  const flexibleRef = useRef(null)
-  const bookingRef = useRef(null)
+  const contactRef = useRef(null)
   
 
   useEffect(() => {
@@ -66,66 +58,49 @@ export default function Home() {
       rootMargin: "0px 0px -100px 0px",
     }
 
-    const animateProcess = (entries: any[]) => {
+    const animateServices = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           anime({
-            targets: ".process-card",
+            targets: ".service-card",
             translateY: [100, 0],
             opacity: [0, 1],
             easing: "easeOutExpo",
             duration: 800,
             delay: anime.stagger(150),
           })
-          processObserver.unobserve(entry.target)
+          servicesObserver.unobserve(entry.target)
         }
       })
     }
 
-    const animateBenefits = (entries: any[]) => {
+    const animateSkills = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           anime({
-            targets: ".benefit-card",
+            targets: ".skill-card",
             scale: [0.9, 1],
             opacity: [0, 1],
             easing: "easeOutExpo",
             duration: 800,
             delay: anime.stagger(100),
           })
-          benefitsObserver.unobserve(entry.target)
+          skillsObserver.unobserve(entry.target)
         }
       })
     }
 
-    const animatePricing = (entries: any[]) => {
+    const animatePortfolio = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           anime({
-            targets: ".pricing-card",
-            translateX: [50, 0],
-            opacity: [0, 1],
-            easing: "easeOutExpo",
-            duration: 800,
-            delay: anime.stagger(200),
-          })
-          pricingObserver.unobserve(entry.target)
-        }
-      })
-    }
-
-    const animateTestimonials = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          anime({
-            targets: ".testimonial-card",
+            targets: ".portfolio-section-wrapper",
             translateY: [50, 0],
             opacity: [0, 1],
             easing: "easeOutExpo",
             duration: 800,
-            delay: anime.stagger(150),
           })
-          testimonialsObserver.unobserve(entry.target)
+          portfolioObserver.unobserve(entry.target)
         }
       })
     }
@@ -145,51 +120,33 @@ export default function Home() {
         }
       })
     }
-    const animateBooking = (entries: any[]) => {
+
+    const animateContact = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           anime({
-            targets: ".booking-section-wrapper",
+            targets: ".contact-section-wrapper",
             translateY: [50, 0],
             opacity: [0, 1],
             easing: "easeOutExpo",
             duration: 800,
           })
-          bookingObserver.unobserve(entry.target)
+          contactObserver.unobserve(entry.target)
         }
       })
     }
 
-    const animateFlexible = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          anime({
-            targets: ".flexible-card",
-            scale: [0.8, 1],
-            opacity: [0, 1],
-            easing: "easeOutElastic(1, .5)",
-            duration: 1000,
-            delay: anime.stagger(200),
-          })
-          flexibleObserver.unobserve(entry.target)
-        }
-      })
-    }
-    const processObserver = new IntersectionObserver(animateProcess, observerOptions)
-    const benefitsObserver = new IntersectionObserver(animateBenefits, observerOptions)
-    const pricingObserver = new IntersectionObserver(animatePricing, observerOptions)
-    const testimonialsObserver = new IntersectionObserver(animateTestimonials, observerOptions)
+    const servicesObserver = new IntersectionObserver(animateServices, observerOptions)
+    const skillsObserver = new IntersectionObserver(animateSkills, observerOptions)
+    const portfolioObserver = new IntersectionObserver(animatePortfolio, observerOptions)
     const faqObserver = new IntersectionObserver(animateFaq, observerOptions)
-    const bookingObserver = new IntersectionObserver(animateBooking, observerOptions)
-    const flexibleObserver = new IntersectionObserver(animateFlexible, observerOptions)
+    const contactObserver = new IntersectionObserver(animateContact, observerOptions)
 
-    if (processRef.current) processObserver.observe(processRef.current)
-    if (benefitsRef.current) benefitsObserver.observe(benefitsRef.current)
-    if (pricingRef.current) pricingObserver.observe(pricingRef.current)
-    if (testimonialsRef.current) testimonialsObserver.observe(testimonialsRef.current)
+    if (servicesRef.current) servicesObserver.observe(servicesRef.current)
+    if (skillsRef.current) skillsObserver.observe(skillsRef.current)
+    if (portfolioRef.current) portfolioObserver.observe(portfolioRef.current)
     if (faqRef.current) faqObserver.observe(faqRef.current)
-    if (bookingRef.current) bookingObserver.observe(bookingRef.current)
-    if (flexibleRef.current) flexibleObserver.observe(flexibleRef.current)
+    if (contactRef.current) contactObserver.observe(contactRef.current)
 
     // Button hover animations
     const buttons = document.querySelectorAll(".animate-button")
@@ -214,13 +171,11 @@ export default function Home() {
     })
 
     return () => {
-      if (processRef.current) processObserver.unobserve(processRef.current)
-        if (benefitsRef.current) benefitsObserver.unobserve(benefitsRef.current)
-        if (pricingRef.current) pricingObserver.unobserve(pricingRef.current)
-        if (testimonialsRef.current) testimonialsObserver.unobserve(testimonialsRef.current)
-        if (faqRef.current) faqObserver.unobserve(faqRef.current)
-        if (bookingRef.current) bookingObserver.unobserve(bookingRef.current)
-        if (flexibleRef.current) flexibleObserver.unobserve(flexibleRef.current)
+      if (servicesRef.current) servicesObserver.unobserve(servicesRef.current)
+      if (skillsRef.current) skillsObserver.unobserve(skillsRef.current)
+      if (portfolioRef.current) portfolioObserver.unobserve(portfolioRef.current)
+      if (faqRef.current) faqObserver.unobserve(faqRef.current)
+      if (contactRef.current) contactObserver.unobserve(contactRef.current)
     }
   }, [])
 
@@ -228,15 +183,15 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-color-background">
       <header className="container mx-auto flex items-center justify-between px-4 py-6 md:px-6">
         <div className="flex items-center gap-2 hero-element">
-          <Image src={logo} alt='logo for buildquick' height={120} width={120}/>
+          <div className="text-2xl font-bold text-[#1B1F3B]">{"{codeWithToni}"}</div>
         </div>
         <div className="flex items-center gap-4">
-          <Link href='https://calendly.com/antonio-36xn/new-meeting'>
+          <Link href='mailto:antonio_kodheli@icloud.com'>
           <Button
             className="h-10 rounded-md border-2 border-[#1B1F3B] bg-[#1B1F3B] px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
             variant="default"
           >
-            Let&apos; talk
+            Let&apos;s connect
           </Button>
           </Link>
         </div>
@@ -251,26 +206,34 @@ export default function Home() {
             <div className="relative grid gap-12 rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] md:grid-cols-2 md:items-center md:p-12">
               <div>
                 <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B] hero-element">
-                  Develop Fast, Launch Now
+                  Full-Stack Developer
                 </div>
                 <h1 className="mb-6 font-serif text-5xl font-bold leading-tight tracking-tight text-[#1B1F3B] hero-element md:text-6xl">
-                   Unlimited Development
+                  Building Modern
                   <br />
-                  <span className="italic">for MVPs</span>
+                  <span className="italic">Web & Mobile</span>
                   <br />
-                  and <span className="text-primary">more</span>
+                  <span className="text-primary">Solutions</span>
                 </h1>
                 <div className="mb-4 h-1 w-24 bg-[#1B1F3B] hero-element"></div>
                 <p className="mb-8 text-lg text-black/70 hero-element">
-                  I&apos;m your lead dev—building your ideas in days. Pause or cancel anytime.
+                  Specialized in Next.js with PayloadCMS for rapid development and React Native for cross-platform mobile apps. Based in Boston, MA.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Link href='https://buy.stripe.com/3csg0obFhaBvgdW4gh'>
+                  <Link href='#portfolio'>
                     <Button
                       className="h-12 rounded-md border-2 border-[#1B1F3B] bg-primary px-8 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
                       variant="default"
                     >
-                      Get Started Now
+                      View My Work
+                    </Button>
+                  </Link>
+                  <Link href='#contact'>
+                    <Button
+                      className="h-12 rounded-md border-2 border-[#1B1F3B] bg-white px-8 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
+                      variant="outline"
+                    >
+                      Get In Touch
                     </Button>
                   </Link>
                 </div>
@@ -289,17 +252,17 @@ export default function Home() {
                     </div>
 
                     <div className="mb-2 inline-block rounded-md bg-black px-4 py-1 text-sm font-bold text-white">
-                      Start today
+                      Available for projects
                     </div>
                     
-                    <h2 className="mb-2 text-3xl font-bold">Get the Builder&apos;s Pass</h2>
-                    <p className="mb-6"> Unlimited builds, one flat fee.</p>
-                    <Link href="#pricing">
+                    <h2 className="mb-2 text-3xl font-bold">Ready to Build</h2>
+                    <p className="mb-6">Let&apos;s create something amazing together.</p>
+                    <Link href="#contact">
                     <Button
                       className="h-10 w-full rounded-md border-2 border-black bg-white px-6 text-sm font-bold text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
                       variant="outline"
                     >
-                      See pricing
+                      Start a project
                     </Button>
                     </Link>
                   </div>
@@ -309,17 +272,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Client Logos */}
-        <section ref={logoGridRef} className="border-y-2 border-foreground bg-background  ">
+        {/* Tech Stack Logos */}
+        <section ref={logoGridRef} className="border-y-2 border-foreground bg-background">
           <div className="container mx-auto px-2 md:px-6">
             <div className="flex flex-col items-center">  
               <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-6">
                 {[
                   { name: "Next.js", src: next },
-                  { name: "Contentful", src: contentful },
-                  { name: "Pacific Coffee", src: pacific },
-                  { name: "Country Garden", src: countrygarden },
-                  { name: "Roland Music", src: rolandmusic },
+                  { name: "PayloadCMS", src: contentful },
+                  { name: "React Native", src: pacific },
+                  { name: "JavaScript", src: countrygarden },
+                  { name: "TypeScript", src: rolandmusic },
                   { name: "MongoDB", src: mongo }
                 ].map((logo, index) => (
                   <div 
@@ -350,416 +313,190 @@ export default function Home() {
               <div className="absolute -left-4 -top-4 h-8 w-8 border-2 border-[#1B1F3B] bg-primary geo-shape md:-left-8 md:-top-8 md:h-16 md:w-16"></div>
               <div className="absolute -right-4 -bottom-4 h-8 w-8 border-2 border-[#1B1F3B] bg-secondary geo-shape md:-right-8 md:-bottom-8 md:h-16 md:w-16"></div>
               <h2 className="relative z-10 mx-auto font-serif text-4xl font-bold leading-tight text-[#1B1F3B] md:text-5xl">
-                &quot;Development, <span className="italic">reimagined</span>
+                &quot;Fast development <span className="italic">meets modern technology</span>
                 <br />
-                for <span className="text-primary">dreamers&quot;</span>
+                for <span className="text-primary">exceptional results&quot;</span>
               </h2>
             </div>
           </div>
         </section>
 
-        {/* Three-step Process */}
-        <section ref={processRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
-          <div className="grid gap-8 md:grid-cols-3">
+        {/* Services */}
+        <section ref={servicesRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
+          <div className="mb-16 text-center">
+            <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
+              Services
+            </div>
+            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
+                What I <span className="italic">specialize</span> in
+              </h2>
+            <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
+            <p className="mx-auto max-w-2xl text-lg text-black/70">
+              Modern web and mobile development solutions built with cutting-edge technologies.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Subscribe",
-                description: "Subscribe to our $799/month plan and request as many development tasks as you'd like.",
+                title: "Next.js + PayloadCMS",
+                description: "Rapid web development with Next.js and PayloadCMS for content management, delivering fast and scalable websites.",
                 color: "bg-gradient-to-br from-primary to-[#F8D980]",
-                icon: <Image src={sub} alt="subscribe" width={40}/>,
+                icon: <Globe className="h-8 w-8" />,
                 pattern: "bg-[radial-gradient(black_1px,transparent_1px)] bg-[length:10px_10px]",
               },
               {
-                title: "Request",
-                description: "Submit unlimited development requests—whether it’s a full MVP, landing page, or a quick bug fix, we’ve got you covered.",
+                title: "React Native Mobile",
+                description: "Cross-platform mobile app development with React Native, bringing your ideas to iOS and Android simultaneously.",
                 color: "bg-gradient-to-br from-secondary to-[#1B1F3B]",
-                icon: <Image src={request} alt="request" width={40}/>,
+                icon: <Smartphone className="h-8 w-8" />,
                 pattern:
                   "bg-[linear-gradient(45deg,black_25%,transparent_25%,transparent_50%,black_50%,black_75%,transparent_75%,transparent)] bg-[length:6px_6px]",
               },
               {
-                title: "Receive",
-                description: "Get your development work delivered in just a few days—no long waits, no bottlenecks, just fast, high-quality results.",
+                title: "JavaScript Solutions",
+                description: "Full-stack JavaScript development with TypeScript, Node.js, and modern frameworks for robust applications.",
                 color: "bg-gradient-to-br from-primary to-[#1B1F3B]",
-                icon: <Image src={receive} alt="receive" width={40}/>,
+                icon: <Code className="h-8 w-8" />,
                 pattern:
                   "bg-[linear-gradient(to_right,black_1px,transparent_1px),linear-gradient(to_bottom,black_1px,transparent_1px)] bg-[length:10px_10px]",
               },
-            ].map((step, index) => (
-              <div key={index} className="group relative process-card">
+            ].map((service, index) => (
+              <div key={index} className="group relative service-card">
                 <div
-                  className={`relative overflow-hidden rounded-xl border-2 border-black ${step.color} p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]`}
+                  className={`relative overflow-hidden rounded-xl border-2 border-black ${service.color} p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]`}
                 >
-                  <div className={`absolute inset-0 opacity-10 ${step.pattern}`}></div>
-                  <div className="mb-4 text-4xl">{step.icon}</div>
-                  <h3 className="mb-3 text-2xl font-bold text-white">{step.title}</h3>
-                  <p className="text-white/90">{step.description}</p>
+                  <div className={`absolute inset-0 opacity-10 ${service.pattern}`}></div>
+                  <div className="mb-4 text-white">{service.icon}</div>
+                  <h3 className="mb-3 text-2xl font-bold text-white">{service.title}</h3>
+                  <p className="text-white/90">{service.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Membership Benefits */}
-        <section ref={benefitsRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
+        {/* Skills & Expertise */}
+        <section ref={skillsRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
           <div className="mb-16 text-center">
             <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
-            Your Builder&apos;s Advantage
+              Tech Stack
             </div>
             <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
-            It&apos;s <span className='italic'>&apos;game-changer&apos;</span> brilliant
-
-
-            </h2>
+                My <span className="italic">development</span> toolkit
+              </h2>
             <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
-            <p className="mx-auto max-w-2xl text-lg text-black/70">
-            Say goodbye to flaky freelancers and overpriced agencies—BuildQuick delivers unlimited development for a single monthly fee. From MVPs to AI agents, your projects launch at lightning speed, keeping you ahead of the game.
-
-
-            </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: <Image src={lightning} alt="lightning"/>,
-                title: "Lightning-Fast Dev Hub",
-                description:
-                  "Moving at warp speed to bring your ideas to life, so you can test and iterate without the wait.",
+                title: "Rapid Development",
+                description: "Next.js with PayloadCMS for lightning-fast website deployment and content management.",
               },
               {
-                icon: <Image src={pricing} alt="pricing"/>,
-                title: "One Price, Endless Builds",
-                description:
-                  "A single monthly fee unlocks unlimited development—no hidden costs, no matter how much you create.",
+                icon: <Image src={pricing} alt="mobile"/>,
+                title: "Mobile Apps",
+                description: "React Native for cross-platform mobile applications with native performance.",
               },
               {
-                icon: <Image src={top} alt="top quality"/>,
-                title: "Elite Development Craft",
-                description: "Access senior-grade expertise whenever you need it, delivered with speed, precision, and zero stress ",
+                icon: <Image src={top} alt="javascript"/>,
+                title: "Modern JavaScript",
+                description: "TypeScript, Node.js, and modern ES6+ features for robust backend solutions.",
               },
               {
-                icon: <Image src={scalable} alt="scalable"/>,
-                title: "Scale with Total Freedom",
-                description: "Ramp up, dial back, or pause anytime—your subscription adapts to your rhythm, hassle-free.",
+                icon: <Image src={scalable} alt="database"/>,
+                title: "Database Integration",
+                description: "MongoDB, PostgreSQL, and modern database solutions for scalable data management.",
               },
-            ].map((benefit, index) => (
-              <div key={index} className="group relative benefit-card">
+            ].map((skill, index) => (
+              <div key={index} className="group relative skill-card">
                 <div className="relative rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[6px_6px_0px_0px_rgba(27,31,59,1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(27,31,59,1)]">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md border-2 border-[#1B1F3B] bg-primary text-2xl shadow-[2px_2px_0px_0px_rgba(27,31,59,1)]">
-                    {benefit.icon}
+                    {skill.icon}
                   </div>
-                  <h3 className="mb-2 text-xl font-bold text-[#1B1F3B]">{benefit.title}</h3>
-                  <p className="text-[#444444]">{benefit.description}</p>
+                  <h3 className="mb-2 text-xl font-bold text-[#1B1F3B]">{skill.title}</h3>
+                  <p className="text-[#444444]">{skill.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Pricing Section */}
-        <section ref={pricingRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32" id="pricing">
+        {/* Portfolio Section */}
+        <section ref={portfolioRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32" id="portfolio">
           <div className="mb-16 text-center">
             <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
-              Pricing
-            </div>
-            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
-              One subscription,
-              <br />
-              <span className="italic">endless possibilities</span>
-            </h2>
-            <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
-          </div>
-
-          <div className="mx-auto max-w-4xl gap-8 ">
-           {/* <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] pricing-card">
-              <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,#F4C542_25%,transparent_25%,transparent_50%,#F4C542_50%,#F4C542_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
-              <div className="mb-4 flex justify-center">
-                <div className="text-center">
-                  <div className="h-30 w-30 overflow-hidden rounded-full border-2 border-black bg-primary">
-                    <div className="flex h-full w-full items-center justify-center text-4xl"><Image src={talk} alt="talk bubble"/></div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mb-2 inline-block rounded-md bg-black px-4 py-1 text-sm font-bold text-white">
-                Start today
-              </div>
-              
-              <h3 className="mb-2 text-2xl font-bold">Join BuildQuick</h3>
-              <p className="mb-4 text-black/70">One subscription to rule them all.</p>
-              <Link href={'https://calendly.com/antonio-36xn/new-meeting'}>
-              <Button
-                className="mb-4 h-10 w-full rounded-md border-2 border-black bg-black px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
-                variant="default"
-              >
-                Let&apos;s talk
-              </Button>
-              </Link>
-              <div className="flex items-center gap-2 text-sm text-black/70">
-                <Clock className="h-4 w-4" />
-                <span>Book a 30-min intro call</span>
-              </div>
-            </div>*/}
-
-            <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-[#1B1F3B] p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] pricing-card">
-              <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,#F4C542_25%,transparent_25%,transparent_50%,#F4C542_50%,#F4C542_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wider text-white/70">Builder&apos;s Pass</div>
-              <div className="mb-6 border-b border-white/10 pb-6">
-                <div className="flex items-baseline">
-                  <span className="text-4xl font-bold text-white">$799</span>
-                  <span className="text-sm text-white/70">/month</span>
-                </div>
-                <div className="mt-2 inline-block rounded-md border border-white/20 px-3 py-0.5 text-xs text-white/70">
-                  PAUSE OR CANCEL ANYTIME
-                </div>
-              </div>
-
-              <div className="mb-6 space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-sm text-white">One request at a time</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-sm text-white">Unlimited revisions</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-sm text-white">Avg. 3-5 day delivery</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-sm text-white">Pause or cancel anytime</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-sm text-white">Full-stack development</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-sm text-white">MVP-focused</span>
-                  </div>
-                </div>
-              </div>
-              <Link href='https://buy.stripe.com/3csg0obFhaBvgdW4gh'>
-              <Button
-                className="h-12 w-full rounded-md border-2 border-black bg-primary px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
-                variant="default"
-              >
-                Join today
-              </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials 
-        <section ref={testimonialsRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-5xl">What our clients say</h2>
-            <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
-          </div>
-          <div className="grid gap-8 md:grid-cols-2">
-            {[
-              {
-                quote: "BuildQuick shows that they know the art of building MVPs quickly.",
-                author: "Sarah Johnson",
-                role: "Founder, TechStart",
-                logo: "TechStart",
-                pattern: "bg-[radial-gradient(black_1px,transparent_1px)] bg-[length:10px_10px]",
-              },
-              {
-                quote: "Development is everything, and these guys have nailed it.",
-                author: "Michael Chen",
-                role: "CEO, GrowthLabs",
-                logo: "GrowthLabs",
-                pattern:
-                  "bg-[linear-gradient(45deg,black_25%,transparent_25%,transparent_50%,black_50%,black_75%,transparent_75%,transparent)] bg-[length:6px_6px]",
-              },
-            ].map((testimonial, index) => (
-              <div key={index} className="group relative testimonial-card">
-                <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[6px_6px_0px_0px_rgba(27,31,59,1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(27,31,59,1)]">
-                  <div className={`absolute inset-0 opacity-5 ${testimonial.pattern}`}></div>
-                  <h3 className="mb-6 text-3xl font-serif font-bold text-[#1B1F3B]">&quot;{testimonial.quote}&quot;</h3>
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-[#1B1F3B] bg-primary">
-                      <div className="flex h-full w-full items-center justify-center text-sm font-bold text-[#1B1F3B]">
-                        {testimonial.author
-                          .split(" ")
-                          .map((name) => name[0])
-                          .join("")}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold text-[#1B1F3B]">{testimonial.author}</div>
-                      <div className="text-sm text-[#444444]">{testimonial.role}</div>
-                    </div>
-                  </div>
-                  <div className="mt-4 h-8 w-24 rounded bg-[#E3E6F5]"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-        */}
-
-<section className="container mx-auto px-4 py-20 md:px-6 md:py-32">
-          <div className="mb-16 text-center">
-            <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
-              Our Work
+              Portfolio
             </div>
             <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-5xl">
-              Projects we&apos;ve <span className="italic">built</span>
+              Featured <span className="italic">projects</span>
             </h2>
             <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
             <p className="mx-auto max-w-2xl text-lg text-black/70">
-              Take a look at some of the projects we&apos;ve delivered for our clients.
+              A showcase of web and mobile applications built with modern technologies.
             </p>
           </div>
 
-          <Showcase/>
-        </section>
-        
-
-        {/* FAQ Section */}
-        <section ref={faqRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
-          <div className="grid gap-12 md:grid-cols-2">
-            <div>
-              <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
-                Frequently
-              </div>
-              <h2 className="mb-6 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">asked questions</h2>
-              <div className="mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
-
-              <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-gradient-to-br from-primary to-[#F8D980] p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)]">
-                <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,white_25%,transparent_25%,transparent_50%,white_50%,white_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
-                <div className="mb-4 text-4xl">📞</div>
-                <h3 className="mb-2 text-2xl font-bold text-white">Book a 30-min intro call</h3>
-                <p className="mb-6 text-white/90">Have more questions? Schedule a quick call with us.</p>
-                <Link href='https://calendly.com/antonio-36xn/new-meeting'>
-                <Button
-                  className="h-10 w-full rounded-md border-2 border-black bg-white px-6 text-sm font-bold text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
-                  variant="outline"
-                >
-                  Let&apos;s talk
-                </Button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              {[
-                {
-                  question: "How fast will I receive my MVP?",
-                  answer:
-                    "Most MVPs can be built in 5 days up to 4 weeks, depending on complexity. We work in sprints to deliver value quickly.",
-                },
-                {
-                  question: "Is there a limit to how many requests I can make?",
-                  answer:
-                    "We work on one request at a time, but you can queue up as many as you'd like. Once one is complete, we move to the next.",
-                },
-                {
-                  question: "How does the pause feature work?",
-                  answer:
-                    "You can pause your subscription anytime. We'll complete any in-progress work, and you can resume when you're ready.",
-                },
-                {
-                  question: "What tech stack do you use?",
-                  answer:
-                    "We primarily use React, Next.js, Node.js, Express, PayloadCMS and various databases like MongoDB and PostgreSQL. We can adapt to your needs.",
-                },
-                {
-                  question: "Can I use BuildQuick for just a month?",
-                  answer: "There's no minimum commitment. Use us for a month, a year, or however long you need.",
-                },
-              ].map((faq, index) => (
-                <div
-                  key={index}
-                  className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] faq-item"
-                >
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-bold text-[#1B1F3B]">{faq.question}</h3>
-                    <ChevronDown className="h-5 w-5 text-[#1B1F3B]" />
-                  </div>
-                  <div className="mt-2 text-[#444444]">{faq.answer}</div>
-                </div>
-              ))}
-            </div>
+          <div className="portfolio-section-wrapper">
+            <Showcase/>
           </div>
         </section>
 
-        <section ref={bookingRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
+        {/* Contact Section */}
+        <section ref={contactRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32" id="contact">
           <div className="mb-16 text-center">
             <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
-            Let&apos;s Start Building
+              Let&apos;s Connect
             </div>
             <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
-              Ready to <span className="italic">bring your idea to life?</span>
+              Ready to <span className="italic">start your project?</span>
             </h2>
             <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
           </div>
 
-          <div className="booking-section-wrapper">
-          <div className="relative">
-      {/* Decorative elements */}
-      <div className="absolute -left-4 -top-4 h-16 w-16 rounded-full bg-primary opacity-20 md:-left-8 md:-top-8 md:h-32 md:w-32"></div>
-      <div className="absolute -right-4 bottom-4 h-20 w-20 rounded-full bg-secondary opacity-20 md:-right-8 md:bottom-8 md:h-40 md:w-40"></div>
+          <div className="contact-section-wrapper">
+            <div className="relative">
+              {/* Decorative elements */}
+              <div className="absolute -left-4 -top-4 h-16 w-16 rounded-full bg-primary opacity-20 md:-left-8 md:-top-8 md:h-32 md:w-32"></div>
+              <div className="absolute -right-4 bottom-4 h-20 w-20 rounded-full bg-secondary opacity-20 md:-right-8 md:bottom-8 md:h-40 md:w-40"></div>
 
-      <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)]">
-        <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,white_25%,transparent_25%,transparent_50%,white_50%,white_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
+              <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)]">
+                <div className="absolute -right-16 -top-16 h-32 w-32 rotate-12 bg-[linear-gradient(45deg,white_25%,transparent_25%,transparent_50%,white_50%,white_75%,transparent_75%,transparent)] bg-[length:10px_10px] opacity-20"></div>
 
-        <div className="flex flex-col items-center text-center">
-          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-            <Mail className="h-8 w-8 text-primary" />
-          </div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                    <Mail className="h-8 w-8 text-primary" />
+                  </div>
 
-          <h2 className="mb-4 font-serif text-4xl font-bold leading-tight text-[#1B1F3B]">Share Your Vision</h2>
+                  <h2 className="mb-4 font-serif text-4xl font-bold leading-tight text-[#1B1F3B]">Get in Touch</h2>
 
-          <div className="mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
+                  <div className="mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
 
-          <p className="mb-8 max-w-2xl text-lg text-[#444444]">
-          Got a Project to Build? We&apos;re eager to dive into your idea. Ping us at{" "}
-            <Link href="mailto:hello@buildquick.io" className="font-medium text-primary underline">
-              hello@buildquick.io
-            </Link>{" "}
-            for the quickest reply.
-          </p>
+                  <p className="mb-8 max-w-2xl text-lg text-[#444444]">
+                    Need a website, mobile app, or custom solution? I&apos;d love to discuss your project. Reach out at{" "}
+                    <Link href="mailto:antonio_kodheli@icloud.com" className="font-medium text-primary underline">
+                      antonio_kodheli@icloud.com
+                    </Link>{" "}
+                    and let&apos;s bring your ideas to life.
+                  </p>
 
-          <Button
-            className="h-12 rounded-md border-2 border-[#1B1F3B] bg-primary px-8 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)]"
-            asChild
-          >
-            <a href="mailto:hello@buildquick.io">
-              Email Us Now
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
-        </div>
-      </div>
-    </div>
-          </div>
-        </section>
+                  <div className="mb-8 text-center">
+                    <p className="text-[#444444]">📍 Boston, MA</p>
+                  </div>
 
-        {/* Flexible Options */}
-        <section ref={flexibleRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[6px_6px_0px_0px_rgba(27,31,59,1)] flexible-card">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#1B1F3B] bg-primary text-2xl shadow-[2px_2px_0px_0px_rgba(27,31,59,1)]">
-                <Image src={pause} alt="pause" width={120} height={120}/>
+                  <Button
+                    className="h-12 rounded-md border-2 border-[#1B1F3B] bg-primary px-8 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)]"
+                    asChild
+                  >
+                    <a href="mailto:antonio_kodheli@icloud.com">
+                      Send Email
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
               </div>
-              <h3 className="mb-2 text-2xl font-bold text-[#1B1F3B]">Freeze when you need</h3>
-              <p className="text-[#444444]">Take a break from your plan anytime, effortlessly.</p>
-            </div>
-
-            <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[6px_6px_0px_0px_rgba(27,31,59,1)] flexible-card">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-md border-2 border-[#1B1F3B] bg-primary text-2xl shadow-[2px_2px_0px_0px_rgba(27,31,59,1)]">
-                <Image src={testing} alt="testing" width={120} height={120}/>
-              </div>
-              <h3 className="mb-2 text-2xl font-bold text-[#1B1F3B]">Test Drive for 7 Days</h3>
-              <p className="text-[#444444]">Not hooked yet? Claim 50% back, hassle-free.</p>
             </div>
           </div>
         </section>
@@ -769,18 +506,14 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
-              <Image src={logo} alt="logo image " width={120} height={120}/>
+              <div className="text-2xl font-bold text-[#1B1F3B]">{"{codeWithToni}"}</div>
             </div>
-            <div>
-              <Link href={'https://brindle-mail-5c6.notion.site/Privacy-Policy-1d557c50f1e580f6a554f0b8b3453991'}>
-                <p className="text-sm text-[#1B1F3B]">Privacy Policy</p>
-              </Link>
-              <Link href={'https://brindle-mail-5c6.notion.site/Terms-of-Service-1d557c50f1e58035b356f819da1946ac'}>
-                <p className="text-sm text-[#1B1F3B]">Terms of Service</p>
-              </Link>
+            <div className="text-center">
+              <p className="text-sm text-[#1B1F3B]">Full-Stack Developer & Mobile App Specialist</p>
+              <p className="text-sm text-[#444444]">Boston, MA</p>
             </div>
             <div className="flex gap-4">
-              <Link href='https://x.com/_buildquick'>
+              <Link href='https://twitter.com/antonio_codes'>
               <Button
                 className="h-9 w-9 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button"
                 variant="outline"
@@ -828,10 +561,34 @@ export default function Home() {
                 </svg>
               </Button>
               </Link>
+              <Link href={'https://github.com/antonio-codes'}>
+              <Button
+                className="h-9 w-9 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button"
+                variant="outline"
+                size="icon"
+                aria-label="GitHub"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                >
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+              </Button>
+              </Link>
             </div>
           </div>
           <div className="mt-8 border-t-2 border-black/10 pt-8 text-center text-xs text-black/70">
-            <p>© {new Date().getFullYear()} BuildQuick. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Antonio Kodheli. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -16,45 +16,45 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BuildQuick - Unlimited Web Development Subscription",
+  title: "Antonio Kodheli - Web Developer & Technical Solutions",
   description:
-    "BuildQuick offers unlimited web development for a flat monthly fee. Get your MVP built in days, not months. Pause or cancel anytime.",
-  keywords: "web development, subscription, MVP, startup, React, Next.js, unlimited development, BuildQuick",
-  authors: [{ name: "BuildQuick Team" }],
-  creator: "BuildQuick",
-  publisher: "BuildQuick",
+    "Expert web development services specializing in modern, responsive websites and applications. Frontend, backend, and full-stack solutions based in Boston, MA.",
+  keywords: "web development, frontend engineering, backend development, React, Next.js, full-stack developer, Antonio Kodheli, Boston developer",
+  authors: [{ name: "Antonio Kodheli" }],
+  creator: "Antonio Kodheli",
+  publisher: "Antonio Kodheli",
   formatDetection: {
     email: false,
     telephone: false,
   },
-  metadataBase: new URL("https://buildquick.io"),
+  metadataBase: new URL("https://codewithtoni.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://buildquick.io",
-    title: "BuildQuick - Unlimited Web Development Subscription",
+    url: "https://codewithtoni.com",
+    title: "Antonio Kodheli - Web Developer & Technical Solutions",
     description:
-      "BuildQuick offers unlimited web development for a flat monthly fee. Get your MVP built in days, not months. Pause or cancel anytime.",
-    siteName: "BuildQuick",
+      "Expert web development services specializing in modern, responsive websites and applications. Frontend, backend, and full-stack solutions based in Boston, MA.",
+    siteName: "Antonio Kodheli Portfolio",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "BuildQuick - Unlimited Web Development",
+        alt: "Antonio Kodheli - Web Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BuildQuick - Unlimited Web Development Subscription",
+    title: "Antonio Kodheli - Web Developer & Technical Solutions",
     description:
-      "BuildQuick offers unlimited web development for a flat monthly fee. Get your MVP built in days, not months. Pause or cancel anytime.",
+      "Expert web development services specializing in modern, responsive websites and applications. Frontend, backend, and full-stack solutions based in Boston, MA.",
     images: ["/twitter-image.png"],
-    creator: "@buildquick",
+    creator: "@antonio_codes",
   },
   robots: {
     index: true,
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
-  applicationName: "BuildQuick",
+  applicationName: "Antonio Kodheli Portfolio",
   category: "technology",
 }
 
