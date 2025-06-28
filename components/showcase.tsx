@@ -28,7 +28,7 @@ export default function Showcase() {
         url: "https://www.hotelasbaksrrjoll.com/",
       },
       {
-        imageUrl: "https://i.imgur.com/sMVGy4K_d.png?maxwidth=520&shape=thumb&fidelity=high",
+        imageUrl: "https://i.imgur.com/sMVGy4K.png",
         alt: "PioneerUI",
         url: "https://pioneerui.com",
       },
