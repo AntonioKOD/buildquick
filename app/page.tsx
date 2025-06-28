@@ -198,8 +198,8 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="flex min-h-screen flex-col bg-color-background">
-      <header className="container mx-auto flex items-center justify-between px-4 py-4 md:px-6 md:py-6">
+    <div className="flex min-h-screen flex-col bg-color-background overflow-x-hidden">
+      <header className="container mx-auto flex items-center justify-between px-4 py-4 md:px-6 md:py-6 w-full max-w-full">
         <div className="flex items-center gap-2 hero-element">
           <div className="text-xl font-bold text-[#1B1F3B] md:text-2xl">{"{codeWithToni}"}</div>
         </div>
@@ -216,44 +216,44 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {/* Hero Section */}
-        <section ref={heroRef} className="container mx-auto px-4 py-16 md:px-6 md:py-24">
-          <div className="relative">
-            <div className="absolute -left-4 -top-4 h-16 w-16 rounded-full bg-primary geo-shape md:-left-8 md:-top-8 md:h-32 md:w-32"></div>
-            <div className="absolute -right-4 bottom-4 h-20 w-20 rounded-full bg-secondary geo-shape md:-right-8 md:bottom-8 md:h-40 md:w-40"></div>
-            <div className="relative grid gap-12 rounded-xl border-2 border-[#1B1F3B] bg-white p-8 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] md:grid-cols-2 md:items-center md:p-12">
-              <div>
+        <section ref={heroRef} className="container mx-auto px-4 py-12 md:px-6 md:py-24 w-full max-w-full">
+          <div className="relative w-full max-w-full">
+            <div className="absolute -left-2 -top-2 h-8 w-8 rounded-full bg-primary geo-shape md:-left-8 md:-top-8 md:h-32 md:w-32"></div>
+            <div className="absolute -right-2 bottom-2 h-10 w-10 rounded-full bg-secondary geo-shape md:-right-8 md:bottom-8 md:h-40 md:w-40"></div>
+            <div className="relative grid gap-8 rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] md:grid-cols-2 md:items-center md:p-12 md:gap-12 md:shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] w-full max-w-full">
+              <div className="w-full max-w-full">
                 <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B] hero-element">
                   Full-Stack Web Developer
                 </div>
-                <h1 className="mb-6 font-serif text-4xl font-bold leading-tight tracking-tight text-[#1B1F3B] hero-element md:text-5xl lg:text-6xl">
+                <h1 className="mb-4 font-serif text-3xl font-bold leading-tight tracking-tight text-[#1B1F3B] hero-element md:text-5xl lg:text-6xl md:mb-6">
                   Building Modern
                   <br />
                   <span className="italic">Web Applications</span>
                   <br />
                   <span className="text-primary">With Cutting-Edge Tech</span>
                 </h1>
-                <div className="mb-4 h-1 w-24 bg-[#1B1F3B] hero-element"></div>
-                <p className="mb-6 text-base text-black/70 hero-element md:text-lg">
+                <div className="mb-3 h-1 w-20 bg-[#1B1F3B] hero-element md:mb-4 md:w-24"></div>
+                <p className="mb-4 text-sm text-black/70 hero-element md:text-lg md:mb-6">
                   Specialized in Next.js with PayloadCMS for rapid development and the MERN stack for full-stack web applications. Based in Boston, MA.
                 </p>
                 <div className="mb-4 inline-block rounded-md bg-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white hero-element flex items-center gap-1">
                   <TrendingUp className="h-3 w-3" />
                   Only 2 spots left this month
                 </div>
-                <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-                  <Link href='#portfolio'>
+                <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full">
+                  <Link href='#portfolio' className="w-full sm:w-auto">
                     <Button
-                      className="h-12 w-full rounded-md border-2 border-[#1B1F3B] bg-primary px-6 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element sm:w-auto sm:px-8"
+                      className="h-12 w-full rounded-md border-2 border-[#1B1F3B] bg-primary px-6 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element sm:px-8"
                       variant="default"
                     >
                       View My Work
                     </Button>
                   </Link>
-                  <Link href='#contact'>
+                  <Link href='#contact' className="w-full sm:w-auto">
                     <Button
-                      className="h-12 w-full rounded-md border-2 border-[#1B1F3B] bg-white px-6 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element sm:w-auto sm:px-8"
+                      className="h-12 w-full rounded-md border-2 border-[#1B1F3B] bg-white px-6 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element sm:px-8"
                       variant="outline"
                     >
                       Apply Now (Limited Spots)
@@ -261,10 +261,10 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="relative hero-element">
-                <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-gradient-to-br from-secondary to-[#1B1F3B] p-6 shadow-[8px_8px_0px_0px_rgba(27,31,59,1)]">
-                  <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-secondary opacity-50 blur-xl"></div>
-                  <div className="absolute -bottom-12 -left-12 h-24 w-24 rounded-full bg-primary opacity-50 blur-xl"></div>
+              <div className="relative hero-element w-full max-w-full">
+                <div className="relative overflow-hidden rounded-xl border-2 border-[#1B1F3B] bg-gradient-to-br from-secondary to-[#1B1F3B] p-4 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] md:p-6 md:shadow-[8px_8px_0px_0px_rgba(27,31,59,1)] w-full max-w-full">
+                  <div className="absolute -right-6 -top-6 h-12 w-12 rounded-full bg-secondary opacity-50 blur-xl md:-right-12 md:-top-12 md:h-24 md:w-24"></div>
+                  <div className="absolute -bottom-6 -left-6 h-12 w-12 rounded-full bg-primary opacity-50 blur-xl md:-bottom-12 md:-left-12 md:h-24 md:w-24"></div>
                   <div className="relative z-10 text-center text-white">
                     <div className="mb-4 flex justify-center">
                       <div className="text-center">
@@ -296,30 +296,30 @@ export default function Home() {
         </section>
 
         {/* Urgency/Application Section */}
-        <section className="border-y-2 border-[#1B1F3B] bg-gradient-to-r from-[#F4C542] to-[#F8D980] py-16 md:py-24">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="relative">
-              <div className="absolute -left-4 -top-4 h-12 w-12 rounded-full bg-[#1B1F3B] opacity-20 md:-left-8 md:-top-8 md:h-24 md:w-24"></div>
-              <div className="absolute -right-4 bottom-4 h-16 w-16 rounded-full bg-white opacity-30 md:-right-8 md:bottom-8 md:h-32 md:w-32"></div>
+        <section className="border-y-2 border-[#1B1F3B] bg-gradient-to-r from-[#F4C542] to-[#F8D980] py-12 md:py-24 w-full overflow-x-hidden">
+          <div className="container mx-auto px-4 md:px-6 w-full max-w-full">
+            <div className="relative w-full max-w-full">
+              <div className="absolute -left-2 -top-2 h-6 w-6 rounded-full bg-[#1B1F3B] opacity-20 md:-left-8 md:-top-8 md:h-24 md:w-24"></div>
+              <div className="absolute -right-2 bottom-2 h-8 w-8 rounded-full bg-white opacity-30 md:-right-8 md:bottom-8 md:h-32 md:w-32"></div>
               
-              <div className="relative text-center">
-                <div className="mb-4 inline-block rounded-md bg-[#1B1F3B] px-4 py-2 text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                  <Zap className="h-4 w-4" />
+              <div className="relative text-center w-full max-w-full">
+                <div className="mb-3 inline-block rounded-md bg-[#1B1F3B] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2 md:mb-4 md:px-4 md:py-2 md:text-sm">
+                  <Zap className="h-3 w-3 md:h-4 md:w-4" />
                   Limited Availability
                 </div>
-                <h2 className="mb-6 font-serif text-3xl font-bold leading-tight text-[#1B1F3B] md:text-5xl">
+                <h2 className="mb-4 font-serif text-2xl font-bold leading-tight text-[#1B1F3B] md:text-5xl md:mb-6">
                   Let&apos;s see if you&apos;re <span className="italic">approved</span>
                   <br />
-                  for a <span className="underline decoration-4 decoration-[#1B1F3B]">premium website</span>
+                  for a <span className="underline decoration-2 decoration-[#1B1F3B] md:decoration-4">premium website</span>
                 </h2>
-                <div className="mx-auto mb-8 h-1 w-24 bg-[#1B1F3B]"></div>
+                <div className="mx-auto mb-6 h-1 w-20 bg-[#1B1F3B] md:mb-8 md:w-24"></div>
                 
-                <div className="mx-auto max-w-3xl">
-                  <p className="mb-8 text-lg text-[#1B1F3B]/80">
+                <div className="mx-auto max-w-3xl w-full">
+                  <p className="mb-6 text-base text-[#1B1F3B]/80 md:text-lg md:mb-8">
                     I only take on <span className="font-bold text-[#1B1F3B]">3-5 new projects per month</span> to ensure each client gets my full attention and delivers exceptional results. Not everyone qualifies.
                   </p>
 
-                  <div className="mb-8 grid gap-6 md:grid-cols-3">
+                  <div className="mb-6 grid gap-4 md:grid-cols-3 md:gap-6 md:mb-8">
                     <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]">
                       <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-md bg-[#1B1F3B] text-white">
                         <Target className="h-6 w-6" />
@@ -364,13 +364,13 @@ export default function Home() {
         </section>
 
         {/* Tech Stack Logos */}
-        <section ref={logoGridRef} className="border-y-2 border-foreground bg-background py-8 md:py-12">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col items-center">
-              <h3 className="mb-8 text-center font-serif text-2xl font-bold text-[#1B1F3B] md:text-3xl">
+        <section ref={logoGridRef} className="border-y-2 border-foreground bg-background py-8 md:py-12 w-full overflow-x-hidden">
+          <div className="container mx-auto px-4 md:px-6 w-full max-w-full">
+            <div className="flex flex-col items-center w-full">
+              <h3 className="mb-6 text-center font-serif text-xl font-bold text-[#1B1F3B] md:text-3xl md:mb-8">
                 Trusted by businesses using modern tech
               </h3>
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6 md:gap-8">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6 md:gap-8 w-full max-w-4xl">
                 {[
                   { name: "Next.js", src: next },
                   { name: "PayloadCMS", src: contentful },
@@ -381,16 +381,16 @@ export default function Home() {
                 ].map((logo, index) => (
                   <div 
                     key={index} 
-                    className="group logo-float relative flex items-center justify-center"
+                    className="group logo-float relative flex items-center justify-center w-full"
                   >
                     <div className="absolute inset-0 -z-10 rounded-lg border-2 border-foreground bg-card opacity-0 shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all duration-300 group-hover:opacity-100 md:shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]"></div>
-                    <div className="relative w-full overflow-hidden p-3 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 md:p-4">
+                    <div className="relative w-full overflow-hidden p-2 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 md:p-4">
                       <Image 
                         src={logo.src || "/placeholder.svg"} 
                         alt={`${logo.name} logo`} 
-                        width={80} 
-                        height={80} 
-                        className="h-16 w-16 object-contain md:h-20 md:w-20" 
+                        width={60} 
+                        height={60} 
+                        className="h-12 w-12 object-contain mx-auto md:h-20 md:w-20 md:h-16 md:w-16" 
                       />
                     </div>
                   </div>
@@ -416,21 +416,21 @@ export default function Home() {
         </section>
 
         {/* Services */}
-        <section ref={servicesRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
-          <div className="mb-16 text-center">
+        <section ref={servicesRef} className="container mx-auto px-4 py-16 md:px-6 md:py-32 w-full max-w-full overflow-x-hidden">
+          <div className="mb-12 text-center md:mb-16">
             <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
               Services
             </div>
-            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
+            <h2 className="mb-3 font-serif text-3xl font-bold text-[#1B1F3B] md:text-6xl md:mb-4">
                 What I <span className="italic">specialize</span> in
               </h2>
-            <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
-            <p className="mx-auto max-w-2xl text-lg text-black/70">
+            <div className="mx-auto mb-4 h-1 w-20 bg-[#1B1F3B] md:mb-6 md:w-24"></div>
+            <p className="mx-auto max-w-2xl text-base text-black/70 md:text-lg">
               Modern web development solutions built with cutting-edge technologies for scalable applications.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8 w-full max-w-full">
             {[
               {
                 title: "Next.js + PayloadCMS",
@@ -471,18 +471,18 @@ export default function Home() {
         </section>
 
         {/* Skills & Expertise */}
-        <section ref={skillsRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32">
-          <div className="mb-16 text-center">
+        <section ref={skillsRef} className="container mx-auto px-4 py-16 md:px-6 md:py-32 w-full max-w-full overflow-x-hidden">
+          <div className="mb-12 text-center md:mb-16">
             <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
               Tech Stack
             </div>
-            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
+            <h2 className="mb-3 font-serif text-3xl font-bold text-[#1B1F3B] md:text-6xl md:mb-4">
                 My <span className="italic">development</span> toolkit
               </h2>
-            <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
+            <div className="mx-auto mb-4 h-1 w-20 bg-[#1B1F3B] md:mb-6 md:w-24"></div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-8 w-full max-w-full">
             {[
               {
                 icon: <Image src={lightning} alt="lightning"/>,
@@ -519,21 +519,21 @@ export default function Home() {
         </section>
 
         {/* Portfolio Section */}
-        <section ref={portfolioRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32" id="portfolio">
-          <div className="mb-16 text-center">
+        <section ref={portfolioRef} className="container mx-auto px-4 py-16 md:px-6 md:py-32 w-full max-w-full overflow-x-hidden" id="portfolio">
+          <div className="mb-12 text-center md:mb-16">
             <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
               Portfolio
             </div>
-            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-5xl">
+            <h2 className="mb-3 font-serif text-3xl font-bold text-[#1B1F3B] md:text-5xl md:mb-4">
               Featured <span className="italic">projects</span>
             </h2>
-            <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
-            <p className="mx-auto max-w-2xl text-lg text-black/70">
+            <div className="mx-auto mb-4 h-1 w-20 bg-[#1B1F3B] md:mb-6 md:w-24"></div>
+            <p className="mx-auto max-w-2xl text-base text-black/70 md:text-lg">
               A showcase of web applications built with Next.js, PayloadCMS, and the MERN stack.
             </p>
           </div>
 
-          <div className="portfolio-section-wrapper">
+          <div className="portfolio-section-wrapper w-full max-w-full">
             <Showcase/>
           </div>
         </section>

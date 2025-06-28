@@ -81,6 +81,12 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   applicationName: "Antonio Kodheli Portfolio",
   category: "technology",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 }
 
 export default function RootLayout({

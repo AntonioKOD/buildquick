@@ -69,9 +69,11 @@
     color: hsl(var(--foreground));
     font-feature-settings: "rlig" 1, "calt" 1;
     font-family: "Inter", Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 }
 
@@ -151,4 +153,51 @@
   100% {
     transform: translateX(calc(-50% - 0.75rem));
   }
+}
+
+/* Mobile specific improvements */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100%;
+  }
+  
+  /* Improve mobile scrolling for horizontal carousels */
+  .overflow-x-auto {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Smooth snap scrolling */
+  .snap-x {
+    scroll-snap-type: x mandatory;
+  }
+  
+  .snap-center {
+    scroll-snap-align: center;
+  }
+}
+
+/* Ensure all containers respect viewport width */
+.w-full {
+  max-width: 100vw;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+/* Prevent horizontal overflow */
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
