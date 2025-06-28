@@ -4,6 +4,12 @@ import { cn } from "@/lib/utils"
 import React, { useEffect, useState } from "react"
 import Image from "next/image"
 
+interface PhotoItem {
+  imageUrl: string
+  alt: string
+  url?: string
+}
+
 export const InfiniteMovingPhotos = ({
   items,
   direction = "left",
@@ -11,11 +17,7 @@ export const InfiniteMovingPhotos = ({
   pauseOnHover = true,
   className,
 }: {
-  items: {
-    imageUrl: string
-    alt: string
-    url?: string // Add optional url property
-  }[]
+  items: PhotoItem[]
   direction?: "left" | "right"
   speed?: "fast" | "normal" | "slow"
   pauseOnHover?: boolean
@@ -25,13 +27,7 @@ export const InfiniteMovingPhotos = ({
   const scrollerRef = React.useRef<HTMLUListElement>(null)
   const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>({})
 
-  useEffect(() => {
-    addAnimation()
-  }, [])
-
-  const [start, setStart] = useState(false)
-
-  function addAnimation() {
+  const addAnimation = React.useCallback(() => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children)
 
@@ -46,7 +42,13 @@ export const InfiniteMovingPhotos = ({
       getSpeed()
       setStart(true)
     }
-  }
+  }, [])
+
+  useEffect(() => {
+    addAnimation()
+  }, [addAnimation])
+
+  const [start, setStart] = useState(false)
 
   const getDirection = () => {
     if (containerRef.current) {
@@ -74,7 +76,7 @@ export const InfiniteMovingPhotos = ({
     setImageErrors(prev => ({ ...prev, [index]: true }))
   }
 
-  const PhotoFrame = ({ item, index }: { item: any, index: number }) => (
+  const PhotoFrame = ({ item, index }: { item: PhotoItem, index: number }) => (
     <li
       className="relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] max-w-full shrink-0 transform transition-transform duration-300 hover:scale-105 hover:-rotate-2 cursor-pointer"
       key={`photo-${index}`}
@@ -96,7 +98,7 @@ export const InfiniteMovingPhotos = ({
   )
 
   const PhotoContent = ({ item, index, onError, hasError }: { 
-    item: any, 
+    item: PhotoItem, 
     index: number, 
     onError: () => void,
     hasError?: boolean 

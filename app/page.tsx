@@ -183,11 +183,17 @@ export default function Home() {
     })
 
     return () => {
-      if (servicesRef.current) servicesObserver.unobserve(servicesRef.current)
-      if (skillsRef.current) skillsObserver.unobserve(skillsRef.current)
-      if (portfolioRef.current) portfolioObserver.unobserve(portfolioRef.current)
-      if (faqRef.current) faqObserver.unobserve(faqRef.current)
-      if (contactRef.current) contactObserver.unobserve(contactRef.current)
+      const services = servicesRef.current
+      const skills = skillsRef.current
+      const portfolio = portfolioRef.current
+      const faq = faqRef.current
+      const contact = contactRef.current
+      
+      if (services) servicesObserver.unobserve(services)
+      if (skills) skillsObserver.unobserve(skills)
+      if (portfolio) portfolioObserver.unobserve(portfolio)
+      if (faq) faqObserver.unobserve(faq)
+      if (contact) contactObserver.unobserve(contact)
     }
   }, [])
 
