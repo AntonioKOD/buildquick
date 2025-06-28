@@ -181,17 +181,18 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col bg-color-background">
-      <header className="container mx-auto flex items-center justify-between px-4 py-6 md:px-6">
+      <header className="container mx-auto flex items-center justify-between px-4 py-4 md:px-6 md:py-6">
         <div className="flex items-center gap-2 hero-element">
-          <div className="text-2xl font-bold text-[#1B1F3B]">{"{codeWithToni}"}</div>
+          <div className="text-xl font-bold text-[#1B1F3B] md:text-2xl">{"{codeWithToni}"}</div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <Link href='mailto:antonio_kodheli@icloud.com'>
           <Button
-            className="h-10 rounded-md border-2 border-[#1B1F3B] bg-[#1B1F3B] px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
+            className="h-9 rounded-md border-2 border-[#1B1F3B] bg-[#1B1F3B] px-3 text-xs font-bold text-white shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] animate-button hero-element md:h-10 md:px-6 md:text-sm md:shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] md:hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)]"
             variant="default"
           >
-            Let&apos;s connect
+            <span className="hidden sm:inline">Apply Now</span>
+            <span className="sm:hidden">Apply</span>
           </Button>
           </Link>
         </div>
@@ -208,7 +209,7 @@ export default function Home() {
                 <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B] hero-element">
                   Full-Stack Web Developer
                 </div>
-                <h1 className="mb-6 font-serif text-5xl font-bold leading-tight tracking-tight text-[#1B1F3B] hero-element md:text-6xl">
+                <h1 className="mb-6 font-serif text-4xl font-bold leading-tight tracking-tight text-[#1B1F3B] hero-element md:text-5xl lg:text-6xl">
                   Building Modern
                   <br />
                   <span className="italic">Web Applications</span>
@@ -216,13 +217,16 @@ export default function Home() {
                   <span className="text-primary">With Cutting-Edge Tech</span>
                 </h1>
                 <div className="mb-4 h-1 w-24 bg-[#1B1F3B] hero-element"></div>
-                <p className="mb-8 text-lg text-black/70 hero-element">
+                <p className="mb-6 text-base text-black/70 hero-element md:text-lg">
                   Specialized in Next.js with PayloadCMS for rapid development and the MERN stack for full-stack web applications. Based in Boston, MA.
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="mb-4 inline-block rounded-md bg-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white hero-element">
+                  🔥 Only 2 spots left this month
+                </div>
+                <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                   <Link href='#portfolio'>
                     <Button
-                      className="h-12 rounded-md border-2 border-[#1B1F3B] bg-primary px-8 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
+                      className="h-12 w-full rounded-md border-2 border-[#1B1F3B] bg-primary px-6 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element sm:w-auto sm:px-8"
                       variant="default"
                     >
                       View My Work
@@ -230,10 +234,10 @@ export default function Home() {
                   </Link>
                   <Link href='#contact'>
                     <Button
-                      className="h-12 rounded-md border-2 border-[#1B1F3B] bg-white px-8 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element"
+                      className="h-12 w-full rounded-md border-2 border-[#1B1F3B] bg-white px-6 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element sm:w-auto sm:px-8"
                       variant="outline"
                     >
-                      Get In Touch
+                      Apply Now (Limited Spots)
                     </Button>
                   </Link>
                 </div>
@@ -272,11 +276,74 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Urgency/Application Section */}
+        <section className="border-y-2 border-[#1B1F3B] bg-gradient-to-r from-[#F4C542] to-[#F8D980] py-16 md:py-24">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="relative">
+              <div className="absolute -left-4 -top-4 h-12 w-12 rounded-full bg-[#1B1F3B] opacity-20 md:-left-8 md:-top-8 md:h-24 md:w-24"></div>
+              <div className="absolute -right-4 bottom-4 h-16 w-16 rounded-full bg-white opacity-30 md:-right-8 md:bottom-8 md:h-32 md:w-32"></div>
+              
+              <div className="relative text-center">
+                <div className="mb-4 inline-block rounded-md bg-[#1B1F3B] px-4 py-2 text-sm font-bold uppercase tracking-wider text-white">
+                  ⚡ Limited Availability
+                </div>
+                <h2 className="mb-6 font-serif text-3xl font-bold leading-tight text-[#1B1F3B] md:text-5xl">
+                  Let&apos;s see if you&apos;re <span className="italic">approved</span>
+                  <br />
+                  for a <span className="underline decoration-4 decoration-[#1B1F3B]">premium website</span>
+                </h2>
+                <div className="mx-auto mb-8 h-1 w-24 bg-[#1B1F3B]"></div>
+                
+                <div className="mx-auto max-w-3xl">
+                  <p className="mb-8 text-lg text-[#1B1F3B]/80">
+                    I only take on <span className="font-bold text-[#1B1F3B]">3-5 new projects per month</span> to ensure each client gets my full attention and delivers exceptional results. Not everyone qualifies.
+                  </p>
+
+                  <div className="mb-8 grid gap-6 md:grid-cols-3">
+                    <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]">
+                      <div className="mb-3 text-2xl">🎯</div>
+                      <h3 className="mb-2 font-bold text-[#1B1F3B]">Selective Process</h3>
+                      <p className="text-sm text-[#444444]">Only serious businesses that value quality and results</p>
+                    </div>
+                    
+                    <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]">
+                      <div className="mb-3 text-2xl">⏰</div>
+                      <h3 className="mb-2 font-bold text-[#1B1F3B]">Limited Spots</h3>
+                      <p className="text-sm text-[#444444]">Maximum 5 clients per month for premium attention</p>
+                    </div>
+                    
+                    <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]">
+                      <div className="mb-3 text-2xl">💎</div>
+                      <h3 className="mb-2 font-bold text-[#1B1F3B]">Premium Results</h3>
+                      <p className="text-sm text-[#444444]">High-converting websites that drive real business growth</p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border-2 border-[#1B1F3B] bg-[#1B1F3B] p-6 text-white">
+                    <p className="mb-4 text-lg font-medium">
+                      📊 Current Status: <span className="text-[#F4C542]">2 spots remaining for January 2024</span>
+                    </p>
+                    <div className="mb-4 h-3 w-full rounded-full bg-white/20">
+                      <div className="h-3 w-3/5 rounded-full bg-[#F4C542]"></div>
+                    </div>
+                    <p className="text-sm text-white/80">
+                      Applications close when spots are filled. Don&apos;t wait.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Tech Stack Logos */}
-        <section ref={logoGridRef} className="border-y-2 border-foreground bg-background">
-          <div className="container mx-auto px-2 md:px-6">
-            <div className="flex flex-col items-center">  
-              <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-6">
+        <section ref={logoGridRef} className="border-y-2 border-foreground bg-background py-8 md:py-12">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="flex flex-col items-center">
+              <h3 className="mb-8 text-center font-serif text-2xl font-bold text-[#1B1F3B] md:text-3xl">
+                Trusted by businesses using modern tech
+              </h3>
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6 md:gap-8">
                 {[
                   { name: "Next.js", src: next },
                   { name: "PayloadCMS", src: contentful },
@@ -289,14 +356,14 @@ export default function Home() {
                     key={index} 
                     className="group logo-float relative flex items-center justify-center"
                   >
-                    <div className="absolute inset-0 -z-10 rounded-lg border-2 border-foreground bg-card opacity-0 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all duration-300 group-hover:opacity-100"></div>
-                    <div className="relative w-full overflow-hidden p-2 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
+                    <div className="absolute inset-0 -z-10 rounded-lg border-2 border-foreground bg-card opacity-0 shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all duration-300 group-hover:opacity-100 md:shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]"></div>
+                    <div className="relative w-full overflow-hidden p-3 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 md:p-4">
                       <Image 
                         src={logo.src || "/placeholder.svg"} 
                         alt={`${logo.name} logo`} 
-                        width={120} 
-                        height={120} 
-                        className="h-full w-full object-contain" 
+                        width={80} 
+                        height={80} 
+                        className="h-16 w-16 object-contain md:h-20 md:w-20" 
                       />
                     </div>
                   </div>
@@ -447,13 +514,16 @@ export default function Home() {
         {/* Contact Section */}
         <section ref={contactRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32" id="contact">
           <div className="mb-16 text-center">
-            <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
-              Let&apos;s Connect
+            <div className="mb-2 inline-block rounded-md bg-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+              🚨 Application Deadline Approaching
             </div>
-            <h2 className="mb-4 font-serif text-4xl font-bold text-[#1B1F3B] md:text-6xl">
-              Ready to <span className="italic">start your project?</span>
+            <h2 className="mb-4 font-serif text-3xl font-bold text-[#1B1F3B] md:text-5xl lg:text-6xl">
+              Ready to <span className="italic">apply for approval?</span>
             </h2>
             <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
+            <p className="mx-auto max-w-2xl text-base text-[#1B1F3B]/80 md:text-lg">
+              <span className="font-bold">Limited spots available.</span> I only work with businesses that are serious about growth and quality. Let&apos;s see if you qualify.
+            </p>
           </div>
 
           <div className="contact-section-wrapper">
@@ -470,16 +540,26 @@ export default function Home() {
                     <Mail className="h-8 w-8 text-primary" />
                   </div>
 
-                  <h2 className="mb-4 font-serif text-4xl font-bold leading-tight text-[#1B1F3B]">Get in Touch</h2>
+                  <h2 className="mb-4 font-serif text-2xl font-bold leading-tight text-[#1B1F3B] md:text-4xl">Submit Your Application</h2>
 
                   <div className="mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
 
-                  <p className="mb-8 max-w-2xl text-lg text-[#444444]">
-                    Need a website, web application, or custom solution? I&apos;d love to discuss your project. Reach out at{" "}
+                  <p className="mb-6 max-w-2xl text-base text-[#444444] md:text-lg">
+                    Ready to build something extraordinary? Send me details about your project and business goals. I&apos;ll review your application and get back to you within 24 hours.
+                  </p>
+
+                  <div className="mb-8 rounded-lg border-2 border-red-500 bg-red-50 p-4">
+                    <p className="text-sm font-medium text-red-700">
+                      ⚠️ <span className="font-bold">Application closes</span> when this month&apos;s spots are filled. Current availability: <span className="font-bold">2 spots remaining</span>
+                    </p>
+                  </div>
+
+                  <p className="mb-8 max-w-2xl text-base text-[#444444]">
+                    Send your application to{" "}
                     <Link href="mailto:antonio_kodheli@icloud.com" className="font-medium text-primary underline">
                       antonio_kodheli@icloud.com
                     </Link>{" "}
-                    and let&apos;s bring your ideas to life.
+                    or use the contact button below.
                   </p>
 
                   <div className="mb-8 text-center">
@@ -487,11 +567,11 @@ export default function Home() {
                   </div>
 
                   <Button
-                    className="h-12 rounded-md border-2 border-[#1B1F3B] bg-primary px-8 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)]"
+                    className="h-12 w-full rounded-md border-2 border-[#1B1F3B] bg-primary px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] sm:w-auto sm:px-8"
                     asChild
                   >
                     <a href="mailto:antonio_kodheli@icloud.com">
-                      Send Email
+                      Submit Application Now
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -502,20 +582,30 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t-2 border-[#1B1F3B] bg-background py-12">
+      <footer className="border-t-2 border-[#1B1F3B] bg-background py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
+          {/* Urgency banner */}
+          <div className="mb-8 rounded-xl border-2 border-red-500 bg-red-50 p-4 text-center md:p-6">
+            <p className="mb-2 text-sm font-bold text-red-600 md:text-base">
+              🚨 Only 2 spots remaining for January 2024
+            </p>
+            <p className="text-xs text-red-600 md:text-sm">
+              Don&apos;t miss out on premium web development services. Applications close when spots are filled.
+            </p>
+          </div>
+          
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
-              <div className="text-2xl font-bold text-[#1B1F3B]">{"{codeWithToni}"}</div>
+              <div className="text-xl font-bold text-[#1B1F3B] md:text-2xl">{"{codeWithToni}"}</div>
             </div>
             <div className="text-center">
-              <p className="text-sm text-[#1B1F3B]">Full-Stack Web Developer</p>
-              <p className="text-sm text-[#444444]">Next.js • PayloadCMS • MERN Stack</p>
+              <p className="text-sm text-[#1B1F3B] md:text-base">Full-Stack Web Developer</p>
+              <p className="text-xs text-[#444444] md:text-sm">Next.js • PayloadCMS • MERN Stack</p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-3 md:gap-4">
               <Link href='https://twitter.com/antonio_codes'>
               <Button
-                className="h-9 w-9 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button"
+                className="h-8 w-8 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button md:h-9 md:w-9"
                 variant="outline"
                 size="icon"
                 aria-label="Twitter"
@@ -530,7 +620,7 @@ export default function Home() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="h-4 w-4"
+                  className="h-3 w-3 md:h-4 md:w-4"
                 >
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                 </svg>
@@ -538,7 +628,7 @@ export default function Home() {
               </Link>
               <Link href={'https://www.linkedin.com/in/antonio-kodheli-1430aa290/'}>
               <Button
-                className="h-9 w-9 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button"
+                className="h-8 w-8 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button md:h-9 md:w-9"
                 variant="outline"
                 size="icon"
                 aria-label="LinkedIn"
@@ -553,7 +643,7 @@ export default function Home() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="h-4 w-4"
+                  className="h-3 w-3 md:h-4 md:w-4"
                 >
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                   <rect width="4" height="12" x="2" y="9" />
@@ -563,7 +653,7 @@ export default function Home() {
               </Link>
               <Link href={'https://github.com/antonio-codes'}>
               <Button
-                className="h-9 w-9 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button"
+                className="h-8 w-8 rounded-full border-2 border-[#1B1F3B] bg-background p-0 text-[#1B1F3B] shadow-[2px_2px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] animate-button md:h-9 md:w-9"
                 variant="outline"
                 size="icon"
                 aria-label="GitHub"
@@ -578,7 +668,7 @@ export default function Home() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="h-4 w-4"
+                  className="h-3 w-3 md:h-4 md:w-4"
                 >
                   <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                   <path d="M9 18c-4.51 2-5-2-7-2" />

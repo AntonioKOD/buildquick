@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Antonio Kodheli - Web Developer & Technical Solutions",
+  title: "Code with Toni - Web Developer & Technical Solutions",
   description:
     "Expert web development services specializing in modern, responsive websites and applications. Frontend, backend, and full-stack solutions based in Boston, MA.",
   keywords: "web development, frontend engineering, backend development, React, Next.js, full-stack developer, Antonio Kodheli, Boston developer",
