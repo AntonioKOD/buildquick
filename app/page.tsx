@@ -2,7 +2,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { ArrowRight, Mail, Code, Globe, Database } from "lucide-react"
+import { ArrowRight, Mail, Code, Globe, Database, Zap, Target, Clock, Gem, BarChart3, AlertTriangle, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import anime from 'animejs';
 import Image from "next/image";
@@ -29,6 +29,18 @@ export default function Home() {
   const portfolioRef = useRef(null)
   const faqRef = useRef(null)
   const contactRef = useRef(null)
+
+  // Get current month and year
+  const getCurrentMonthYear = () => {
+    const now = new Date()
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ]
+    return `${monthNames[now.getMonth()]} ${now.getFullYear()}`
+  }
+
+  const currentMonthYear = getCurrentMonthYear()
   
 
   useEffect(() => {
@@ -220,8 +232,9 @@ export default function Home() {
                 <p className="mb-6 text-base text-black/70 hero-element md:text-lg">
                   Specialized in Next.js with PayloadCMS for rapid development and the MERN stack for full-stack web applications. Based in Boston, MA.
                 </p>
-                <div className="mb-4 inline-block rounded-md bg-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white hero-element">
-                  🔥 Only 2 spots left this month
+                <div className="mb-4 inline-block rounded-md bg-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white hero-element flex items-center gap-1">
+                  <TrendingUp className="h-3 w-3" />
+                  Only 2 spots left this month
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                   <Link href='#portfolio'>
@@ -284,8 +297,9 @@ export default function Home() {
               <div className="absolute -right-4 bottom-4 h-16 w-16 rounded-full bg-white opacity-30 md:-right-8 md:bottom-8 md:h-32 md:w-32"></div>
               
               <div className="relative text-center">
-                <div className="mb-4 inline-block rounded-md bg-[#1B1F3B] px-4 py-2 text-sm font-bold uppercase tracking-wider text-white">
-                  ⚡ Limited Availability
+                <div className="mb-4 inline-block rounded-md bg-[#1B1F3B] px-4 py-2 text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
+                  <Zap className="h-4 w-4" />
+                  Limited Availability
                 </div>
                 <h2 className="mb-6 font-serif text-3xl font-bold leading-tight text-[#1B1F3B] md:text-5xl">
                   Let&apos;s see if you&apos;re <span className="italic">approved</span>
@@ -301,27 +315,34 @@ export default function Home() {
 
                   <div className="mb-8 grid gap-6 md:grid-cols-3">
                     <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]">
-                      <div className="mb-3 text-2xl">🎯</div>
+                      <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-md bg-[#1B1F3B] text-white">
+                        <Target className="h-6 w-6" />
+                      </div>
                       <h3 className="mb-2 font-bold text-[#1B1F3B]">Selective Process</h3>
                       <p className="text-sm text-[#444444]">Only serious businesses that value quality and results</p>
                     </div>
                     
                     <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]">
-                      <div className="mb-3 text-2xl">⏰</div>
+                      <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-md bg-[#1B1F3B] text-white">
+                        <Clock className="h-6 w-6" />
+                      </div>
                       <h3 className="mb-2 font-bold text-[#1B1F3B]">Limited Spots</h3>
                       <p className="text-sm text-[#444444]">Maximum 5 clients per month for premium attention</p>
                     </div>
                     
                     <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]">
-                      <div className="mb-3 text-2xl">💎</div>
+                      <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-md bg-[#1B1F3B] text-white">
+                        <Gem className="h-6 w-6" />
+                      </div>
                       <h3 className="mb-2 font-bold text-[#1B1F3B]">Premium Results</h3>
                       <p className="text-sm text-[#444444]">High-converting websites that drive real business growth</p>
                     </div>
                   </div>
 
                   <div className="rounded-xl border-2 border-[#1B1F3B] bg-[#1B1F3B] p-6 text-white">
-                    <p className="mb-4 text-lg font-medium">
-                      📊 Current Status: <span className="text-[#F4C542]">2 spots remaining for January 2024</span>
+                    <p className="mb-4 text-lg font-medium flex items-center gap-2">
+                      <BarChart3 className="h-5 w-5" />
+                      Current Status: <span className="text-[#F4C542]">2 spots remaining for {currentMonthYear}</span>
                     </p>
                     <div className="mb-4 h-3 w-full rounded-full bg-white/20">
                       <div className="h-3 w-3/5 rounded-full bg-[#F4C542]"></div>
@@ -514,8 +535,9 @@ export default function Home() {
         {/* Contact Section */}
         <section ref={contactRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32" id="contact">
           <div className="mb-16 text-center">
-            <div className="mb-2 inline-block rounded-md bg-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-              🚨 Application Deadline Approaching
+            <div className="mb-2 inline-block rounded-md bg-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+              <AlertTriangle className="h-3 w-3" />
+              Application Deadline Approaching
             </div>
             <h2 className="mb-4 font-serif text-3xl font-bold text-[#1B1F3B] md:text-5xl lg:text-6xl">
               Ready to <span className="italic">apply for approval?</span>
@@ -549,8 +571,9 @@ export default function Home() {
                   </p>
 
                   <div className="mb-8 rounded-lg border-2 border-red-500 bg-red-50 p-4">
-                    <p className="text-sm font-medium text-red-700">
-                      ⚠️ <span className="font-bold">Application closes</span> when this month&apos;s spots are filled. Current availability: <span className="font-bold">2 spots remaining</span>
+                    <p className="text-sm font-medium text-red-700 flex items-center gap-2">
+                      <AlertTriangle className="h-4 w-4" />
+                      <span className="font-bold">Application closes</span> when this month&apos;s spots are filled. Current availability: <span className="font-bold">2 spots remaining</span>
                     </p>
                   </div>
 
@@ -586,8 +609,9 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           {/* Urgency banner */}
           <div className="mb-8 rounded-xl border-2 border-red-500 bg-red-50 p-4 text-center md:p-6">
-            <p className="mb-2 text-sm font-bold text-red-600 md:text-base">
-              🚨 Only 2 spots remaining for January 2024
+            <p className="mb-2 text-sm font-bold text-red-600 md:text-base flex items-center justify-center gap-2">
+              <AlertTriangle className="h-4 w-4" />
+              Only 2 spots remaining for {currentMonthYear}
             </p>
             <p className="text-xs text-red-600 md:text-sm">
               Don&apos;t miss out on premium web development services. Applications close when spots are filled.
