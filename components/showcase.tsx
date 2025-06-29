@@ -21,7 +21,7 @@ export default function Showcase() {
       {
         imageUrl: "https://i.imgur.com/3uE1ACD.png",
         alt: "Scene Match social media",
-        url: "https://scenematch.com",
+        url: "https://sceneconnect.vercel.app/",
         title: "Scene Match",
         description: "Social media platform"
       },
