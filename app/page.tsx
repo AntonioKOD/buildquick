@@ -30,19 +30,6 @@ export default function Home() {
   const faqRef = useRef(null)
   const contactRef = useRef(null)
 
-  // Get current month and year
-  const getCurrentMonthYear = () => {
-    const now = new Date()
-    const monthNames = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ]
-    return `${monthNames[now.getMonth()]} ${now.getFullYear()}`
-  }
-
-  const currentMonthYear = getCurrentMonthYear()
-  
-
   useEffect(() => {
     // Hero animation
     anime({
@@ -209,8 +196,8 @@ export default function Home() {
             className="h-9 rounded-md border-2 border-[#1B1F3B] bg-[#1B1F3B] px-3 text-xs font-bold text-white shadow-[3px_3px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] animate-button hero-element md:h-10 md:px-6 md:text-sm md:shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] md:hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)]"
             variant="default"
           >
-            <span className="hidden sm:inline">Apply Now</span>
-            <span className="sm:hidden">Apply</span>
+            <span className="hidden sm:inline">Contact Me</span>
+            <span className="sm:hidden">Contact</span>
           </Button>
           </Link>
         </div>
@@ -235,13 +222,9 @@ export default function Home() {
                   <span className="text-primary">With Cutting-Edge Tech</span>
                 </h1>
                 <div className="mb-3 h-1 w-20 bg-[#1B1F3B] hero-element md:mb-4 md:w-24"></div>
-                <p className="mb-4 text-sm text-black/70 hero-element md:text-lg md:mb-6">
+                <p className="mb-8 text-sm text-black/70 hero-element md:text-lg">
                   Specialized in Next.js with PayloadCMS for rapid development and the MERN stack for full-stack web applications. Based in Boston, MA.
                 </p>
-                <div className="mb-4 inline-block rounded-md bg-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white hero-element flex items-center gap-1">
-                  <TrendingUp className="h-3 w-3" />
-                  Only 2 spots left this month
-                </div>
                 <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full">
                   <Link href='#portfolio' className="w-full sm:w-auto">
                     <Button
@@ -256,7 +239,7 @@ export default function Home() {
                       className="h-12 w-full rounded-md border-2 border-[#1B1F3B] bg-white px-6 text-sm font-bold text-[#1B1F3B] shadow-[4px_4px_0px_0px_rgba(27,31,59,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(27,31,59,1)] animate-button hero-element sm:px-8"
                       variant="outline"
                     >
-                      Apply Now (Limited Spots)
+                      Get in Touch
                     </Button>
                   </Link>
                 </div>
@@ -275,17 +258,17 @@ export default function Home() {
                     </div>
 
                     <div className="mb-2 inline-block rounded-md bg-black px-4 py-1 text-sm font-bold text-white">
-                      Available for projects
+                      Available for Projects
                     </div>
                     
-                    <h2 className="mb-2 text-3xl font-bold">Ready to Build</h2>
-                    <p className="mb-6">Let&apos;s create something amazing together.</p>
+                    <h2 className="mb-2 text-3xl font-bold">Let&apos;s Create</h2>
+                    <p className="mb-6">Building innovative web solutions</p>
                     <Link href="#contact">
                     <Button
                       className="h-10 w-full rounded-md border-2 border-black bg-white px-6 text-sm font-bold text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] animate-button"
                       variant="outline"
                     >
-                      Start a project
+                      Start a Project
                     </Button>
                     </Link>
                   </div>
@@ -295,7 +278,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Urgency/Application Section */}
+        {/* Portfolio Highlight Section */}
         <section className="border-y-2 border-[#1B1F3B] bg-gradient-to-r from-[#F4C542] to-[#F8D980] py-12 md:py-24 w-full overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6 w-full max-w-full">
             <div className="relative w-full max-w-full">
@@ -304,58 +287,60 @@ export default function Home() {
               
               <div className="relative text-center w-full max-w-full">
                 <div className="mb-3 inline-block rounded-md bg-[#1B1F3B] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2 md:mb-4 md:px-4 md:py-2 md:text-sm">
-                  <Zap className="h-3 w-3 md:h-4 md:w-4" />
-                  Limited Availability
+                  <Code className="h-3 w-3 md:h-4 md:w-4" />
+                  Featured Work
                 </div>
                 <h2 className="mb-4 font-serif text-2xl font-bold leading-tight text-[#1B1F3B] md:text-5xl md:mb-6">
-                  Let&apos;s see if you&apos;re <span className="italic">approved</span>
+                  Crafting <span className="italic">modern</span>
                   <br />
-                  for a <span className="underline decoration-2 decoration-[#1B1F3B] md:decoration-4">premium website</span>
+                  <span className="underline decoration-2 decoration-[#1B1F3B] md:decoration-4">digital experiences</span>
                 </h2>
                 <div className="mx-auto mb-6 h-1 w-20 bg-[#1B1F3B] md:mb-8 md:w-24"></div>
                 
                 <div className="mx-auto max-w-3xl w-full">
                   <p className="mb-6 text-base text-[#1B1F3B]/80 md:text-lg md:mb-8">
-                    I only take on <span className="font-bold text-[#1B1F3B]">3-5 new projects per month</span> to ensure each client gets my full attention and delivers exceptional results. Not everyone qualifies.
+                    Delivering <span className="font-bold text-[#1B1F3B]">high-performance web applications</span> built with modern technologies and best practices.
                   </p>
 
                   <div className="mb-6 grid gap-4 md:grid-cols-3 md:gap-6 md:mb-8">
                     <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]">
                       <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-md bg-[#1B1F3B] text-white">
-                        <Target className="h-6 w-6" />
+                        <Zap className="h-6 w-6" />
                       </div>
-                      <h3 className="mb-2 font-bold text-[#1B1F3B]">Selective Process</h3>
-                      <p className="text-sm text-[#444444]">Only serious businesses that value quality and results</p>
+                      <h3 className="mb-2 font-bold text-[#1B1F3B]">Modern Stack</h3>
+                      <p className="text-sm text-[#444444]">Next.js, React, and cutting-edge technologies</p>
                     </div>
                     
                     <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]">
                       <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-md bg-[#1B1F3B] text-white">
-                        <Clock className="h-6 w-6" />
+                        <Globe className="h-6 w-6" />
                       </div>
-                      <h3 className="mb-2 font-bold text-[#1B1F3B]">Limited Spots</h3>
-                      <p className="text-sm text-[#444444]">Maximum 5 clients per month for premium attention</p>
+                      <h3 className="mb-2 font-bold text-[#1B1F3B]">Full Stack</h3>
+                      <p className="text-sm text-[#444444]">End-to-end solutions from frontend to backend</p>
                     </div>
                     
                     <div className="rounded-xl border-2 border-[#1B1F3B] bg-white p-6 shadow-[4px_4px_0px_0px_rgba(27,31,59,1)]">
                       <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-md bg-[#1B1F3B] text-white">
-                        <Gem className="h-6 w-6" />
+                        <BarChart3 className="h-6 w-6" />
                       </div>
-                      <h3 className="mb-2 font-bold text-[#1B1F3B]">Premium Results</h3>
-                      <p className="text-sm text-[#444444]">High-converting websites that drive real business growth</p>
+                      <h3 className="mb-2 font-bold text-[#1B1F3B]">Performance</h3>
+                      <p className="text-sm text-[#444444]">Optimized for speed and user experience</p>
                     </div>
                   </div>
 
                   <div className="rounded-xl border-2 border-[#1B1F3B] bg-[#1B1F3B] p-6 text-white">
                     <p className="mb-4 text-lg font-medium flex items-center gap-2">
-                      <BarChart3 className="h-5 w-5" />
-                      Current Status: <span className="text-[#F4C542]">2 spots remaining for {currentMonthYear}</span>
+                      <Code className="h-5 w-5" />
+                      Let&apos;s build something amazing together
                     </p>
-                    <div className="mb-4 h-3 w-full rounded-full bg-white/20">
-                      <div className="h-3 w-3/5 rounded-full bg-[#F4C542]"></div>
-                    </div>
-                    <p className="text-sm text-white/80">
-                      Applications close when spots are filled. Don&apos;t wait.
-                    </p>
+                    <Link href="#contact">
+                      <Button
+                        className="h-10 w-full rounded-md border-2 border-white bg-transparent px-6 text-sm font-bold text-white shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] transition-all hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-[5px_5px_0px_0px_rgba(255,255,255,0.2)] animate-button"
+                        variant="outline"
+                      >
+                        Start a Project
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -541,16 +526,15 @@ export default function Home() {
         {/* Contact Section */}
         <section ref={contactRef} className="container mx-auto px-4 py-20 md:px-6 md:py-32" id="contact">
           <div className="mb-16 text-center">
-            <div className="mb-2 inline-block rounded-md bg-red-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
-              <AlertTriangle className="h-3 w-3" />
-              Application Deadline Approaching
+            <div className="mb-2 inline-block rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#1B1F3B]">
+              Contact
             </div>
             <h2 className="mb-4 font-serif text-3xl font-bold text-[#1B1F3B] md:text-5xl lg:text-6xl">
-              Ready to <span className="italic">apply for approval?</span>
+              Let&apos;s <span className="italic">work together</span>
             </h2>
             <div className="mx-auto mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
             <p className="mx-auto max-w-2xl text-base text-[#1B1F3B]/80 md:text-lg">
-              <span className="font-bold">Limited spots available.</span> I only work with businesses that are serious about growth and quality. Let&apos;s see if you qualify.
+              Have a project in mind? Let&apos;s discuss how we can create something amazing together.
             </p>
           </div>
 
@@ -568,23 +552,16 @@ export default function Home() {
                     <Mail className="h-8 w-8 text-primary" />
                   </div>
 
-                  <h2 className="mb-4 font-serif text-2xl font-bold leading-tight text-[#1B1F3B] md:text-4xl">Submit Your Application</h2>
+                  <h2 className="mb-4 font-serif text-2xl font-bold leading-tight text-[#1B1F3B] md:text-4xl">Get in Touch</h2>
 
                   <div className="mb-6 h-1 w-24 bg-[#1B1F3B]"></div>
 
                   <p className="mb-6 max-w-2xl text-base text-[#444444] md:text-lg">
-                    Ready to build something extraordinary? Send me details about your project and business goals. I&apos;ll review your application and get back to you within 24 hours.
+                    Whether you need a modern website, web application, or technical consultation, I&apos;m here to help bring your vision to life.
                   </p>
 
-                  <div className="mb-8 rounded-lg border-2 border-red-500 bg-red-50 p-4">
-                    <p className="text-sm font-medium text-red-700 flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4" />
-                      <span className="font-bold">Application closes</span> when this month&apos;s spots are filled. Current availability: <span className="font-bold">2 spots remaining</span>
-                    </p>
-                  </div>
-
                   <p className="mb-8 max-w-2xl text-base text-[#444444]">
-                    Send your application to{" "}
+                    Email me at{" "}
                     <Link href="mailto:antonio_kodheli@icloud.com" className="font-medium text-primary underline">
                       antonio_kodheli@icloud.com
                     </Link>{" "}
@@ -600,7 +577,7 @@ export default function Home() {
                     asChild
                   >
                     <a href="mailto:antonio_kodheli@icloud.com">
-                      Submit Application Now
+                      Contact Me
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -613,17 +590,6 @@ export default function Home() {
 
       <footer className="border-t-2 border-[#1B1F3B] bg-background py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
-          {/* Urgency banner */}
-          <div className="mb-8 rounded-xl border-2 border-red-500 bg-red-50 p-4 text-center md:p-6">
-            <p className="mb-2 text-sm font-bold text-red-600 md:text-base flex items-center justify-center gap-2">
-              <AlertTriangle className="h-4 w-4" />
-              Only 2 spots remaining for {currentMonthYear}
-            </p>
-            <p className="text-xs text-red-600 md:text-sm">
-              Don&apos;t miss out on premium web development services. Applications close when spots are filled.
-            </p>
-          </div>
-          
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-2">
               <div className="text-xl font-bold text-[#1B1F3B] md:text-2xl">{"{codeWithToni}"}</div>
