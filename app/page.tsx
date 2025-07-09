@@ -2,7 +2,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { ArrowRight, Mail, Code, Globe, Database, Zap, Target, Clock, Gem, BarChart3, AlertTriangle, TrendingUp } from "lucide-react"
+import { ArrowRight, Mail, Code, Globe, Database, Zap, BarChart3 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import anime from 'animejs';
 import Image from "next/image";
